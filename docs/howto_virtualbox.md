@@ -32,7 +32,7 @@ https://www.virtualbox.org/wiki/Downloads
 ## 4. Paramètres recommandés (ressources)
 Ajuster selon les ressources de l'hôte :
 
-- **Monitoring (ELK + syslog-ng + Snort/Wazuh manager)**  
+- **Monitoring (ELK + Kibana + syslog-ng + Snort)**  
   - CPU : 4 vCPU  
   - RAM : 8–12 GB (10 GB recommandé si possible)  
   - Disk : 40–80 GB
