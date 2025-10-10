@@ -70,7 +70,7 @@ Objectif : que la **monitoring** voie le trafic entre `attacker` et `victim`.
 - **attacker** (Kali) :
   - Adapter 1 → *Internal Network* `lab_net`
 
-> **Remarque** : Normalement cette configuration dervait suffir à ce que **monitoring** puisse lire le trafic. Toute fois, une précaution supplémentaire consiste à ce que **victim** et **attacker** aient **monitoring** en passerelle par défaut. Détails dans **8. Exemples : config IP statique (persistant)**
+> **Remarque** : Poure **monitoring** puisse lire le trafic. Toutefois, une précaution supplémentaire consiste à ce que **victim** et **attacker** aient **monitoring** en passerelle par défaut. Détails dans **8. Exemples : config IP statique (persistant)**
 
 ---
 
