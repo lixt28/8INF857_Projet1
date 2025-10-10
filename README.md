@@ -1,5 +1,4 @@
-# Projet — Système de détection d'anomalies & gestion de logs (Snort 3 + ELK + syslog-ng + Kibana)
-
+# Projet — Système de détection d'anomalies et de gestion de logs pour la sécurité des réseaux
 Groupe : Eliot Droumaguet, Estelle Armandine Tchakouani Noukam, Lîna Janaan Wendtouin SAWADOGO
 
 ## But du dépôt
