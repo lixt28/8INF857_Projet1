@@ -9,5 +9,5 @@ sudo apt install -y elasticsearch
 sudo sed -i 's/#cluster.name.*/cluster.name: "lab-cluster"/' /etc/elasticsearch/elasticsearch.yml || true
 sudo sed -i 's/#network.host.*/network.host: 0.0.0.0/' /etc/elasticsearch/elasticsearch.yml || true
 sudo systemctl enable --now elasticsearch
-sleep 3
-curl -s 'http://localhost:9200/_cluster/health?pretty'
+#sleep 3
+#curl -s 'http://localhost:9200/_cluster/health?pretty'
