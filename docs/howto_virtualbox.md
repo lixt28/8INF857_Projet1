@@ -8,9 +8,16 @@ https://www.virtualbox.org/wiki/Downloads
 - Les images OSBoxes sont des images pré-configurer et gratuites, à privilégier pour les machines `monitoring` et `victim` : https://www.osboxes.org/virtualbox-images/
 - Kali Linux est la distribution idéale pour les tests d'intrusion en raison de la variété des outils utilisable pour les tentative d'intrusion, à privilegier pour la machine `attacker` : https://www.kali.org/get-kali/#kali-virtual-machines
 
-## Importer une OVA dans VirtualBox
-1. VirtualBox → Fichier → Importer un appareil virtuel… → sélectionner l’OVA → Suivant.  
+## Importer les VM dans VirtualBox
+1. VirtualBox → Fichier → Importer un appareil virtuel… → sélectionne l’OVA → Suivant (Astuce : faire pour 1 puis cloner : Clic droit sur la VM → Cloner… → Clone complet → Cochez « Réinitialiser les adresses MAC de toutes les cartes réseau ».
 2. Modifie le nom de la VM (ex. `victim-ubuntu`, `attacker-kali`, `monitoring-ubuntu`).
+3.Parametrer les ressources VM (recommandé) :
+- Monitoring VM (ELK + syslog-ng + Snort/Wazuh manager) :
+- CPU : 4 vCPU
+- RAM : 8–12 GB 
+- Disk : 40–80 GB 
+- Victim (serveur web) : 2 vCPU / 2–4 GB RAM / 20 GB disk
+- Attacker (Kali) : 2 vCPU / 4 GB RAM / 20 GB disk
 
 ## Réseau VirtualBox recommandé (topologie fiable)
 L'objectif est que monitoring voit le trafic :
