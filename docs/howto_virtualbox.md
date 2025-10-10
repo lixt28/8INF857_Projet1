@@ -11,26 +11,26 @@ https://www.virtualbox.org/wiki/Downloads
   https://www.osboxes.org/virtualbox-images/  
   *Mot de passe par défaut souvent indiqué sur la page de l’OVA (ex. "osboxes.org").*
   
-> **Conseil** : Récupérer version `OVA`
+> **Important** : Récupérer version `OVA`
 
 - **Kali Linux (VM)** — distribution pour tests d’intrusion :  
   https://www.kali.org/get-kali/#kali-virtual-machines
 
-> **Conseil** : Prendre version `VirtualBox`
+> **Important** : Prendre version `VirtualBox`
 
 ---
 
 ## 3. Importer les VM dans VirtualBox
-1. VirtualBox → **Fichier → Importer un appareil virtuel…** → sélectionne l’OVA → **Suivant**.  
+1. VirtualBox → **Fichier → Importer un appareil virtuel…** → sélectionner l’OVA → **Suivant**.  
 2. Après import, *astuce pratique* : cloner la VM (clic droit → **Cloner…**) → choisir **Clone complet** et **Réinitialiser les adresses MAC** pour éviter les conflits réseau.  
 3. Renommer les VMs logiquement (ex. `victim-ubuntu`, `attacker-kali`, `monitoring-ubuntu`).
 
-**Conseil** : prends un snapshot après l’import et avant toute grosse modification (`Machine → Prendre un instantané`).
+**Conseil** : prendre un snapshot après l’import et avant toute grosse modification (`Machine → Prendre un instantané`).
 
 ---
 
 ## 4. Paramètres recommandés (ressources)
-Ajuste selon les ressources de ton hôte :
+Ajuster selon les ressources de l'hôte :
 
 - **Monitoring (ELK + syslog-ng + Snort/Wazuh manager)**  
   - CPU : 4 vCPU  
@@ -53,15 +53,15 @@ Ajuste selon les ressources de ton hôte :
 Objectif : que la **monitoring** voie le trafic entre `attacker` et `victim`.
 
 ### Topologie simple (recommandée)
-- Crée un **Internal Network** nommé `lab_net`.
+- Créer un **Internal Network** (ex. `labnet`).
 - **monitoring** :
-  - Adapter 1 → *Internal Network* `lab_net`  (interface interne pour sniffing / monitoring)  
-  - Adapter 2 → *NAT* (ou Host-only) pour management / accès Internet / `apt`  
-  - **Activer Promiscuous Mode = Allow All** sur l’adaptateur interne si tu veux sniff L2
+  - Adapter 1 → *Internal Network* `labnet`  (interface interne pour sniffing / monitoring)  
+  - Adapter 2 → *NAT* pour accès Internet / `apt`  
+  - **Activer Promiscuous Mode = Allow All** :
     - GUI : VirtualBox → Paramètres VM → Réseau → Avancé → *Promiscuous Mode*: **Allow All**
     - Dans la VM :  
       ```bash
-      # remplacer <interface> par le nom réel (voir ip a)
+      # remplacer <interface> par le nom de l'interface pour labnet (voir **6. Nom d'interface et vérifications**)
       sudo ip link set dev <interface> promisc on
       ```
 - **victim** :
@@ -70,26 +70,25 @@ Objectif : que la **monitoring** voie le trafic entre `attacker` et `victim`.
 - **attacker** (Kali) :
   - Adapter 1 → *Internal Network* `lab_net`
 
-> **Remarque** : Si attacker et victim sont sur le même Internal Network, les paquets peuvent transiter directement L2 entre eux ; la monitoring ne verra tout le trafic que si elle est en **promisc** ou si tu changes la topologie (méthode alternative : deux internal networks + monitoring en routeur — expliqué en annexe possible).
+> **Remarque** : Normalement cette configuration dervait suffir à ce que **monitoring** puisse lire le trafic. Toute fois, une précaution supplémentaire consiste à ce que **victim** et **attacker** aient **monitoring** en passerelle par défaut. Détails dans **8. Exemples : config IP statique (persistant)**
 
 ---
 
 ## 6. Nom d'interface et vérifications
-Les noms d’interface peuvent varier (`eth0`, `enp0s3`, `ens33`, ...). Vérifie toujours avec :
-
+Les noms d’interface peuvent varier (`eth0`, `enp0s3`, `ens33`, ...). Toujours vérifier avec :
 ```bash
 ip a
 ```
-Repère l’interface correspondant à l’Internal Network (ex. celle qui a l’IP 192.168.1.x). C’est sur celle-ci que tu activeras le promisc et où Snort écoutera.
+> **Pour Monitoring** : Repèrer l’interface correspondant à l’Internal Network (ex. celle qui a l’IP 192.168.1.x). C’est sur celle-ci que tu activeras le promisc et où Snort écoutera.
 
 ---
 
 ## 7. IPs & exemples (valeurs utilisées pour les tests)
-Adapte si tu préfères d’autres plages. Exemple cohérent :
+Exemple cohérent :
 - **Monitoring** (interface interne) : `192.168.1.1/24`
 - **Victim** (serveur web) : `192.168.1.2/24`
 - **Attacker** (Kali) : `192.168.1.3/24`
-> Si tu utilises NAT pour l’accès Internet, l’interface NAT obtient une IP par VirtualBox ; les IP ci-dessus concernent l’Internal Network.
+> **A savoir** : L’interface NAT obtient une IP par VirtualBox ; les IP ci-dessus concernent l’Internal Network.
 
 ---
 
@@ -104,8 +103,6 @@ network:
     enp0s3:
       addresses: [192.168.1.2/24]
       gateway4: 192.168.1.1
-      nameservers:
-        addresses: [8.8.8.8, 8.8.4.4]
 ```
 Appliquer :
 ```bash
@@ -114,10 +111,10 @@ sudo netplan apply
 
 ### Kali (attacker) — nmcli (NetworkManager)
 ```bash
-# adapte ifname=eth0 ou le nom d'interface réel
+# adapter ifname=eth0 si différent
 nmcli con add type ethernet ifname eth0 con-name lab_att \
   ipv4.addresses 192.168.1.3/24 ipv4.gateway 192.168.1.1 \
-  ipv4.dns "8.8.8.8 8.8.4.4" ipv4.method manual
+  ipv4.method manual
 nmcli con up lab_att
 ```
 
@@ -138,11 +135,11 @@ Pour vérifier que la monitoring voit le trafic :
 ```bash
 ip a
 ```
-2. Active le mode promisc (si pas déjà fait via GUI) :
+2. Activer le mode promisc (si pas déjà fait via GUI) :
 ```bash
 sudo ip link set dev <interface> promisc on
 ```
-3. Lance une capture `tcpdump` :
+3. Lancer une capture `tcpdump` :
 ```bash
 sudo tcpdump -n -i <interface> host 192.168.1.3 and host 192.168.1.2
 ```
@@ -150,23 +147,24 @@ sudo tcpdump -n -i <interface> host 192.168.1.3 and host 192.168.1.2
 ```bash
 curl -v --noproxy "*" http://192.168.1.2/
 ```
-Si tu vois SYN / GET / 200 dans `tcpdump` sur la monitoring → sniff OK.
+Si SYN / GET / 200 dans `tcpdump` sur la monitoring → sniff OK.
 
 ---
 
 ## 10. NAT / accès Internet et apt
-- Le second adaptateur en NAT (ou Host-only + NAT sur l’hôte) permet aux VMs d’accéder à Internet pour apt sans exposer le réseau interne.
-- Pour installer `Apache` sur la victim :
+- Le second adaptateur en NAT permet aux VMs d’accéder à Internet pour apt sans exposer le réseau interne.
+- Pour installer `Apache` sur la victim (étape nécessaire pour tester les scénarios finaux) :
 ```bash
 sudo apt update && sudo apt install -y apache2
+sudo systemctl status apache2 # doit être Actif
 ```
 
 ---
 
 ## 11. Copier/Coller bidirectionnel & Guest Additions
-1. Arrête la VM.
-2. VirtualBox Manager → VM → Paramètres → Général → Avancé → Presse-papiers partagé : Bidirectionnel.
-3. Démarre la VM → VirtualBox → Périphériques → Insérer l’image CD des Additions invité...
+1. Arrêter la VM.
+2. **VirtualBox Manager → VM → Paramètres → Général → Avancé → Presse-papiers partagé** : *Bidirectionnel*.
+3. Démarrer la VM → **VirtualBox → Périphériques → Insérer l’image CD des Additions invité...**
 4. Dans la VM (Debian/Ubuntu) :
 ```bash
 sudo apt update
@@ -174,17 +172,14 @@ sudo apt install -y build-essential dkms linux-headers-$(uname -r)
 sudo sh /media/cdrom/VBoxLinuxAdditions.run
 sudo reboot
 ```
-5. Vérifie le copier/coller entre hôte ↔ VM.
+5. Vérifier le copier/coller entre hôte ↔ VM.
 
 ---
 
 ## 12. Conseils pratiques & pièges courants
-**Nomme les interfaces** : ne te fie pas au nom — utilise ip a pour l’identifier.  
-**Promisc capricieux** : si le promisc ne montre rien, reconsidère la topologie (monitoring doit réellement être connectée au même internal network) ou utilise l’option “monitoring en tant que gateway” (deux internal networks + routage).  
-**Snapshots fréquents** : prends des snapshots avant d’installer ELK/Snort.  
-**Synchronisation temporelle** : active NTP sur toutes les VMs (sudo timedatectl set-ntp true) pour des timestamps cohérents dans Kibana.  
-**Sécurisation** : si tu exposes Kibana, protège ES/Kibana (auth, HTTPS). Documente toute option d’expo dans le README.  
-
+**Vérifier le nom des interfaces** : toujours utiliser `ip a` pour identifier le nom des interfaces.  
+**Snapshots fréquents** : prendre des snapshots (sauveguarde) avant d’installer ELK/Snort (VM → Snapshots (Instantanés) → Prendre).  
+ 
 ---
 
 ## 13. Checklist minimal après setup
