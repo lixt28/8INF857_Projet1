@@ -20,7 +20,7 @@ Voir l'arborescence dans le README. Les fichiers de configuration sont dans `con
 - Accès Internet temporaire depuis VM victim pour `apt` apache2 (nécessaire pour les tests finaux)
 
 ## Installation
-- Exécuter les commandes une par une, vérifie la sortie (ok / erreur) avant de passer à la suivante.  
+- Exécuter les commandes une par une, vérifier la sortie (ok / erreur) avant de passer à la suivante.  
 - Pour Snort, remplacer <interface> par le nom réel de l’interface.  
 - Si Elasticsearch demande un peu de temps à démarrer, attendre (10–30s) avant de lancer le PUT du pipeline.  
 
