@@ -3,7 +3,7 @@
 Groupe : Eliot Droumaguet, Estelle Armandine Tchakouani Noukam, Lîna Janaan Wendtouin SAWADOGO
 
 ## But du dépôt
-Ce dépôt est un **tutoriel reproductible** pour monter un labo IDS + SIEM :  
+Ce dépôt est un **tutoriel reproductible** pour monter un labo IDS :  
 - Snort 3 (alert_json) → `/var/log/snort/alert_json.txt`  
 - syslog-ng lit le JSON et envoie vers Elasticsearch (pipeline `snort-enrich`)  
 - Kibana pour visualiser et créer des règles/alertes.
