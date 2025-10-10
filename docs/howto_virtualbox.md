@@ -8,7 +8,7 @@ https://www.virtualbox.org/wiki/Downloads
 
 ## 2. Où récupérer des VMs (osboxes / Kali)
 - **OSBoxes** (Ubuntu, autres distros préconfigurées) — pratique pour `monitoring` et `victim` :  
-  https://www.osboxes.org/virtualbox-images/  
+  https://www.osboxes.org/virtualbox-images/   
   *Mot de passe par défaut souvent indiqué sur la page de l’OVA (ex. "osboxes.org").*
   
 > **Important** : Récupérer version `OVA`
