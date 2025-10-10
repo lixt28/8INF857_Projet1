@@ -179,11 +179,11 @@ sudo reboot
 ---
 
 ## 12. Conseils pratiques & pièges courants
-**Nomme les interfaces** : ne te fie pas au nom — utilise ip a pour l’identifier.
-**Promisc capricieux** : si le promisc ne montre rien, reconsidère la topologie (monitoring doit réellement être connectée au même internal network) ou utilise l’option “monitoring en tant que gateway” (deux internal networks + routage).
-**Snapshots fréquents** : prends des snapshots avant d’installer ELK/Snort.
-**Synchronisation temporelle** : active NTP sur toutes les VMs (sudo timedatectl set-ntp true) pour des timestamps cohérents dans Kibana.
-**Sécurisation** : si tu exposes Kibana, protège ES/Kibana (auth, HTTPS). Documente toute option d’expo dans le README.
+**Nomme les interfaces** : ne te fie pas au nom — utilise ip a pour l’identifier.  
+**Promisc capricieux** : si le promisc ne montre rien, reconsidère la topologie (monitoring doit réellement être connectée au même internal network) ou utilise l’option “monitoring en tant que gateway” (deux internal networks + routage).  
+**Snapshots fréquents** : prends des snapshots avant d’installer ELK/Snort.  
+**Synchronisation temporelle** : active NTP sur toutes les VMs (sudo timedatectl set-ntp true) pour des timestamps cohérents dans Kibana.  
+**Sécurisation** : si tu exposes Kibana, protège ES/Kibana (auth, HTTPS). Documente toute option d’expo dans le README.  
 
 ---
 
