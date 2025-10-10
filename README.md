@@ -107,7 +107,7 @@ ip a
 ```
 > Noter le nom de l'interface (ex: enp0s3 ou ens33)
 
-Lancer Snort (remplace <interface> par ton interface réelle) :
+Lancer Snort (remplacer <interface> par l'interface réelle) :
 ```bash
 sudo /usr/local/snort/bin/snort -c /usr/local/etc/snort/snort.lua -i <interface> -A alert_json -l /var/log/snort -k none -s 0
 ```
