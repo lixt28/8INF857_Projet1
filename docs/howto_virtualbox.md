@@ -25,7 +25,7 @@ https://www.virtualbox.org/wiki/Downloads
 2. Après import, *astuce pratique* : cloner la VM (clic droit → **Cloner…**) → choisir **Clone complet** et **Réinitialiser les adresses MAC** pour éviter les conflits réseau.  
 3. Renommer les VMs logiquement (ex. `victim-ubuntu`, `attacker-kali`, `monitoring-ubuntu`).
 
-**Conseil** : prendre un snapshot après l’import et avant toute grosse modification (`Machine → Prendre un instantané`).
+**Conseil** : prendre un snapshot après l’import et avant toute grosse modification (`Machine → Snapshots (Instantanés) → Prendre un instantané`).
 
 ---
 
@@ -176,13 +176,7 @@ sudo reboot
 
 ---
 
-## 12. Conseils pratiques & pièges courants
-**Vérifier le nom des interfaces** : toujours utiliser `ip a` pour identifier le nom des interfaces.  
-**Snapshots fréquents** : prendre des snapshots (sauveguarde) avant d’installer ELK/Snort (VM → Snapshots (Instantanés) → Prendre).  
- 
----
-
-## 13. Checklist minimal après setup
+## 12. Checklist minimal après setup
 ```text
 1) ip a -> vérifier interfaces et IPs (monitoring: 192.168.1.1)
 2) sudo ip link set dev <iface_monitor> promisc on
