@@ -27,7 +27,7 @@ Voir l'arborescence dans le README (ou `tree` au besoin). Les fichiers de config
    sudo bash scripts/01_install_elasticsearch.sh
    sudo bash scripts/02_install_kibana.sh
    sudo bash scripts/03_install_syslogng.sh
-   sudo bash scripts/04_install_snort3_from_source.sh
+   sudo bash scripts/04_install_snort3.sh
    sudo bash scripts/05_deploy_snort_rules.sh
 3. Vérifier la génération d’alertes : sudo tail -f /var/log/snort/alert_json.txt
 4. Vérifier ingestion ES : curl 'http://localhost:9200/snort/_search?size=3&pretty'
