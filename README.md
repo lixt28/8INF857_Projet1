@@ -25,7 +25,7 @@ Voir l'arborescence dans le README. Les fichiers de configuration sont dans `con
 - Si Elasticsearch demande un peu de temps à démarrer, attendre (10–30s) avant de lancer le PUT du pipeline.  
 
 ### 1. Préparer l'environnement 
-Importer les VMs et configurer le réseau lab (voir [docs/howto_virtualbox.md])
+Importer les VMs et configurer le réseau lab (voir (docs/howto_virtualbox.md)[docs/howto_virtualbox.md])
 
 ### 2. Cloner le dépôt sur la monitoring
 ```bash
