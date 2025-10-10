@@ -1,10 +1,8 @@
 # Récupérer et configurer les VMs (VirtualBox)
 
 ## 1. Installer VirtualBox
-Télécharge et installe VirtualBox depuis le site officiel :  
+Télécharger et installer VirtualBox depuis le site officiel :  
 https://www.virtualbox.org/wiki/Downloads
-
-Installe aussi les *Extension Packs* si tu veux les fonctionnalités avancées (USB, RDP).
 
 ---
 
@@ -12,18 +10,20 @@ Installe aussi les *Extension Packs* si tu veux les fonctionnalités avancées (
 - **OSBoxes** (Ubuntu, autres distros préconfigurées) — pratique pour `monitoring` et `victim` :  
   https://www.osboxes.org/virtualbox-images/  
   *Mot de passe par défaut souvent indiqué sur la page de l’OVA (ex. "osboxes.org").*
+  
+> **Conseil** : Récupérer version `OVA`
 
 - **Kali Linux (VM)** — distribution pour tests d’intrusion :  
   https://www.kali.org/get-kali/#kali-virtual-machines
 
-> **Ne pousse jamais les fichiers OVA dans le repo.** Indique simplement le lien et la version dans le README.
+> **Conseil** : Prendre version `VirtualBox`
 
 ---
 
 ## 3. Importer les VM dans VirtualBox
 1. VirtualBox → **Fichier → Importer un appareil virtuel…** → sélectionne l’OVA → **Suivant**.  
 2. Après import, *astuce pratique* : cloner la VM (clic droit → **Cloner…**) → choisir **Clone complet** et **Réinitialiser les adresses MAC** pour éviter les conflits réseau.  
-3. Renomme les VMs comme tu veux (ex. `victim-ubuntu`, `attacker-kali`, `monitoring-ubuntu`).
+3. Renommer les VMs logiquement (ex. `victim-ubuntu`, `attacker-kali`, `monitoring-ubuntu`).
 
 **Conseil** : prends un snapshot après l’import et avant toute grosse modification (`Machine → Prendre un instantané`).
 
