@@ -13,7 +13,7 @@ https://www.virtualbox.org/wiki/Downloads
   
 > **Important** : Récupérer version `OVA`
 
-- **Kali Linux (VM)** — distribution pour tests d’intrusion :  
+- **Kali Linux (VM)** — distribution pour tests d’intrusion, idéal pour `attacker` :  
   https://www.kali.org/get-kali/#kali-virtual-machines
 
 > **Important** : Prendre version `VirtualBox`
