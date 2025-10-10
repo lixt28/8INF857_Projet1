@@ -1,5 +1,9 @@
 # Récupérer et configurer les VMs (VirtualBox)
 
+## Installer VirtualBox
+Se rendre sur le site officiel de VirtualBox et récupérer la dernière version disponible pour le bon système d'exploitation :
+-> https://www.virtualbox.org/wiki/Downloads <-
+
 ## Où récupérer les VMs (osboxes)
 Utilise OSBoxes (https://www.osboxes.org/) pour télécharger les images (OVA) :
 - Ubuntu LTS (pour `monitoring` et/ou `victim`)
