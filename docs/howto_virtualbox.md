@@ -23,7 +23,7 @@ https://www.virtualbox.org/wiki/Downloads
 L'objectif est que monitoring voit le trafic :
 - Crée un Internal Network : `lab_net`
 - `monitoring` : Attacher l’adaptateur 1 à Internal Network `lab_att`, attacher l'adaptateur 2 à NAT (nécessaire pour installer les outils). Activer **Promiscuous Mode = Allow All** sur l'adaptateur 1 +
-  '''bash
+  ```bash
   sudo ip link set dev <interface> promisc on
 - `victim` : Attacher l’adaptateur 1 à Internal Network `lab_net`, attacher l'adaptateur 2 à NAT (pour `apt` pour installer apache2 - nécessaire pour réaliser l'un des tests d'attaque)
 - `attacker` : Attacher l’adaptateur 1 à Internal Network `lab_net`
