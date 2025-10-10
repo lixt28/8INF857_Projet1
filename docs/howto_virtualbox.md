@@ -61,7 +61,7 @@ Objectif : que la **monitoring** voie le trafic entre `attacker` et `victim`.
     - GUI : VirtualBox → Paramètres VM → Réseau → Avancé → *Promiscuous Mode*: **Allow All**
     - Dans la VM :  
       ```bash
-      # remplacer <interface> par le nom de l'interface pour labnet (voir **6. Nom d'interface et vérifications**)
+      # remplacer <interface> par le nom de l'interface pour labnet (voir ip a → **6. Nom d'interface et vérifications**)
       sudo ip link set dev <interface> promisc on
       ```
 - **victim** :
