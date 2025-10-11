@@ -13,15 +13,15 @@ Ce document décrit chaque scénario d'attaque, où trouver les scripts, comment
    sudo systemctl enable --now apache2
    ```
 3. Sur la VM monitoring :
-   - Snort doit être installé et en mesure d'écouter l'interface interne (ex: enp0s3).
+- Snort doit être installé et en mesure d'écouter l'interface interne (ex: enp0s3).
    - syslog-ng doit être installé et configurer pour lire /var/log/snort/alert_json.txt et poster vers ES.
    - Elasticsearch et Kibana doivent être démarrés et accessibles.
-4. Rendre les scripts exécutables :
+5. Rendre les scripts exécutables :
    ```bash
-   chmod +x scripts/test_scenarios/*.sh
-   chmod +x scripts/20_collect_proofs.sh
+   sudo chmod +x scripts/test_scenarios/*.sh
+   sudo chmod +x scripts/20_collect_proofs.sh
    ```
-5. (Optionnel) Si tu veux tester sans provoquer d'attaque réseau, tu peux injecter une fausse alerte dans /var/log/snort/alert_json.txt :
+6. (Optionnel) Si tu veux tester sans provoquer d'attaque réseau, tu peux injecter une fausse alerte dans /var/log/snort/alert_json.txt :
    ```bash
    sudo bash -lc 'echo "{ \"seconds\": $(date +%s), \"msg\": \"PORTSCAN_SYN\", \"rule\": \"122:23:1\" }" >> /var/log/snort/alert_json.txt'
    ```
