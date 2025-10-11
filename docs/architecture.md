@@ -20,8 +20,7 @@ flowchart LR
   Victim ---|L2| Monitoring
   Monitoring --- HostMgmt["Host/NAT - Internet"]
   HostMgmt --- Internet["Internet - apt/updates"]
-```
-```mermaid
+
 graph TD
   Snort[Snort3 (sensor)]
   AlertsFile["/var/log/snort/alert_json.txt\n(JSONL)"]
