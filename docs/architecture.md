@@ -24,22 +24,22 @@ flowchart LR
 
 ```mermaid
 graph TD
-  Snort[Snort3 (sensor)]
-  AlertsFile["/var/log/snort/alert_json.txt\n(JSONL)"]
+  Snort[Snort3 - sensor]
+  Alerts["/var/log/snort/alert_json.txt - JSONL"]
   SyslogNg[syslog-ng]
-  Elasticsearch[Elasticsearch\n(index: snort)]
-  Kibana[Kibana\n(dashboards / alerts)]
+  ES["Elasticsearch - index: snort"]
+  Kibana["Kibana - dashboards & alerts"]
   DashboardFile["kibana/dashboards/snort_dashboard.ndjson"]
   Rules["/usr/local/etc/snort/rules/local.rules"]
   SnortLua["/usr/local/etc/snort/snort.lua"]
-  Pipeline["ES ingest pipeline\nsnort-enrich"]
+  Pipeline["ES ingest pipeline - snort-enrich"]
 
-  Snort -->|writes JSONL| AlertsFile
-  AlertsFile -->|read & POST| SyslogNg
-  SyslogNg -->|POST (pipeline snort-enrich)| Elasticsearch
-  Elasticsearch -->|serves data| Kibana
-  Kibana -->|export/import| DashboardFile
+  Snort -->|writes JSONL| Alerts
+  Alerts -->|read & POST| SyslogNg
+  SyslogNg -->|POST (uses pipeline)| ES
+  ES -->|serves data| Kibana
+  Kibana -->|export / import| DashboardFile
   Snort -->|reads rules| Rules
   Snort -->|reads config| SnortLua
-  Elasticsearch -->|executes ingest| Pipeline
+  ES -->|executes ingest processors| Pipeline
 ```
