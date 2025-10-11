@@ -156,4 +156,3 @@ Créer un tableau de bord **“Snort – Overview”** et y ajouter des visualis
 - **Règles (Elasticsearch query)** : KQL par `rule_name`, **Summary of alerts / On check intervals / Query matched**, **Index connector** vers `alerts-snort` avec **Message JSON**  
 - **Export/Import** : *Saved Objects* pour data views/dashboards/visualizations, **Rules and Connectors** pour les règles
 
-Bonnes analyses !
