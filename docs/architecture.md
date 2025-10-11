@@ -1,5 +1,4 @@
 # Architecture du labo
-
 Ce labo reproduit une architecture simplifiée d'un système de détection et d'agrégation de logs.  
 Dans ce contexte pédagogique, toutes les machines sont sur le même réseau interne (`lab_net`) pour faciliter les tests, mais l'architecture simule le chemin réel des flux d'alerte :
 
