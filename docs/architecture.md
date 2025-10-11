@@ -12,8 +12,6 @@ Dans ce contexte pédagogique, toutes les machines sont sur le même réseau int
 
 - **But pédagogique** : simuler la détection d'attaques (HTTP exploit, portscan, brute SSH, DNS exfil, ICMP flood) et prouver la chaîne : détection → ingestion → visualisation/alerte.
 
----
-
 ## Diagramme réseau
 
 ```mermaid
@@ -32,8 +30,6 @@ flowchart LR
   Monitoring --- HostNAT["Host NAT / Internet"]
   HostNAT --- Internet["Internet - apt updates"]
 ```
-
----
 
 ## Diagramme : flux et interactions entre outils & fichiers de configuration
 
@@ -71,16 +67,12 @@ graph TD
 - **Kibana dashboard export** → `kibana/dashboards/*.ndjson`
 (export NDJSON importable pour précharger dashboards / visualisations quand tu refais les tests)
 
----
-
 ## Remarques & limites
-
 - Dans un déploiement réel, l'attaquant n'est généralement pas aussi « proche » du monitoring — ici la simplification aide la reproductibilité.
 - Veille à synchroniser l'heure (ntp) sur toutes les VMs pour obtenir des timestamps cohérents dans Kibana.
 - La topologie peut être modifiée : si la monitoring est configurée en routeur (2 internal nets), elle peut capturer tout le trafic sans promisc mode ; autrement utilise promisc on sur l'interface interne.
 
 ## Où insérer / vérifier ces composants dans le repo
-
 - pipeline ES : configs/elastic/snort-enrich-pipeline.json
 - Snort config & rules : configs/snort/snort.lua, configs/snort/local.rules
 - export Kibana : kibana/dashboards/ (mettre le .ndjson exporté)
