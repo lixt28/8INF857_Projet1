@@ -13,7 +13,7 @@ Ce document décrit chaque scénario d'attaque, où trouver les scripts, comment
    sudo systemctl enable --now apache2
    ```
 3. Sur la VM monitoring :
-- Snort doit être installé et en mesure d'écouter l'interface interne (ex: enp0s3).
+   - Snort doit être installé et en mesure d'écouter l'interface interne (ex: enp0s3).
    - syslog-ng doit être installé et configurer pour lire /var/log/snort/alert_json.txt et poster vers ES.
    - Elasticsearch et Kibana doivent être démarrés et accessibles.
 5. Rendre les scripts exécutables :
