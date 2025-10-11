@@ -117,12 +117,7 @@ sudo /usr/local/snort/bin/snort -c /usr/local/etc/snort/snort.lua -i <interface>
 Laisser Snort tourner en console le temps d’effectuer un test depuis la VM attacker.
 
 ## Configuration de Kibana
-1. Importing
-2. Go to Stack Management > Saved Objects.
-3. Click the Import button.
-4. Select the .ndjson file you want to import (configs/kibana/export.ndjson).
-5. Choose your import options, such as how to handle conflicts with existing objects.
-6. Click Import to complete the process. 
+ 
 
 ## Tests & preuves
 Les scénarios de test sont fournis dans `scripts/test_scenarios/`. Après l'exécution d'un scénario, 
