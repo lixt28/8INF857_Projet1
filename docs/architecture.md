@@ -8,20 +8,16 @@ Attacker (Kali) <--> monitoring (Snort3 + syslog-ng + ES/Kibana) <--> Victim (Ub
 
 ```mermaid
 flowchart LR
-  subgraph Host["VirtualBox Host"]
-    direction LR
-  end
-
-  subgraph Internal["Internal Network: lab_net"]
+  subgraph Internal
     direction TB
-    Attacker[Kali - Attacker\n192.168.1.3]
-    Victim[Victim - Server\n192.168.1.2]
-    Monitoring[Monitoring\nSnort3 + syslog-ng + ES/Kibana\n192.168.1.1]
+    Attacker["Kali - Attacker\n192.168.1.3"]
+    Victim["Victim - Server\n192.168.1.2"]
+    Monitoring["Monitoring\nSnort3 + syslog-ng + ES/Kibana\n192.168.1.1"]
   end
 
   Attacker ---|L2| Victim
   Attacker ---|L2| Monitoring
   Victim ---|L2| Monitoring
-  Monitoring --- HostMgmt[Host/NAT - Internet]
-  HostMgmt --- Internet[Internet (apt / updates)]
-```
+  Monitoring --- HostMgmt["Host/NAT - Internet"]
+  HostMgmt --- Internet["Internet - apt/updates"]
+
