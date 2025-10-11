@@ -115,6 +115,13 @@ sudo /usr/local/snort/bin/snort -c /usr/local/etc/snort/snort.lua -i <interface>
 - `-s 0` → capture full packet (utile pour HTTP content checks)
 Laisser Snort tourner en console le temps d’effectuer un test depuis la VM attacker.
 
+## Configuration de Kibana
+1. Importing
+2. Go to Stack Management > Saved Objects.
+3. Click the Import button.
+4. Select the .ndjson file you want to import (configs/kibana/export.ndjson).
+5. Choose your import options, such as how to handle conflicts with existing objects.
+6. Click Import to complete the process. 
 
 ## Tests / Scénarios
 Les scénarios de test (HTTP exploit, portscan, brute SSH, DNS exfil, ICMP flood) sont décrits dans [docs/test_scenarios.md](docs/test_scenarios.md) et les scripts des attaques sont proposées `script/test_scenarios/`.
