@@ -117,7 +117,7 @@ Laisser Snort tourner en console le temps d’effectuer un test depuis la VM att
 
 
 ## Tests / Scénarios
-Les scénarios de test (HTTP exploit, portscan, brute SSH, DNS exfil, ICMP flood) sont décrits dans docs/architecture.md et les commandes proposées dans la section « Scénarios ».
+Les scénarios de test (HTTP exploit, portscan, brute SSH, DNS exfil, ICMP flood) sont décrits dans [docs/test_scenarios.md](docs/test_scenarios.md) et les scripts des attaques sont proposées `script/test_scenarios/`.
 
 ## Preuves
 Met dans evidence/ : captures Kibana, sortie curl ES, extrait alert_json.txt, pcap, et screenshots. Voir docs/screenshots/ pour les placeholders.
