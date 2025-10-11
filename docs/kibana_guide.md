@@ -1,4 +1,3 @@
-
 # Kibana – Data Views, Dashboards & Alerts (Snort → Elasticsearch)
 
 Ce guide résume la configuration **Kibana** réalisée pour visualiser les événements **Snort** indexés dans **Elasticsearch**, créer des **tableaux de bord**, et générer des **alertes** (règles) qui écrivent dans un index d’alertes dédié. Pour directement importer, aller à la section **5) Export & Import (Save Objects, `*.ndjson`)**.
