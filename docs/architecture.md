@@ -36,14 +36,14 @@ flowchart LR
 ```mermaid
 graph TD
   Snort[Snort3 sensor]
-  Alerts[Alert file\n/var/log/snort/alert_json.txt]
+  Alerts[Alert file]
   SyslogNg[syslog-ng]
-  ES[Elasticsearch\n(index: snort)]
-  Pipeline[Ingest pipeline\nsnort-enrich]
-  Kibana[Kibana\n(dashboards & alerts)]
-  DashboardFile[Dashboard export\nkibana/dashboards/*.ndjson]
-  Rules[Snort rules\n/usr/local/etc/snort/rules/local.rules]
-  SnortLua[Snort config\n/usr/local/etc/snort/snort.lua]
+  ES[Elasticsearch index snort]
+  Pipeline[Ingest pipeline snort-enrich]
+  Kibana[Kibana dashboards and alerts]
+  DashboardFile[Dashboard export file]
+  Rules[Snort rules file]
+  SnortLua[Snort config file]
 
   Snort --> Alerts
   Alerts --> SyslogNg
@@ -52,7 +52,7 @@ graph TD
   Kibana --> DashboardFile
   Snort --> Rules
   Snort --> SnortLua
-  Pipeline --> ES
+  ES --> Pipeline
 ```
 
 ## Légende et fichiers importants
