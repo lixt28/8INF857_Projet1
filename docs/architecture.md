@@ -20,4 +20,24 @@ flowchart LR
   Victim ---|L2| Monitoring
   Monitoring --- HostMgmt["Host/NAT - Internet"]
   HostMgmt --- Internet["Internet - apt/updates"]
+```
+```mermaid
+graph TD
+  Snort[Snort3 (sensor)]
+  AlertsFile["/var/log/snort/alert_json.txt\n(JSONL)"]
+  SyslogNg[syslog-ng]
+  Elasticsearch[Elasticsearch\n(index: snort)]
+  Kibana[Kibana\n(dashboards / alerts)]
+  DashboardFile["kibana/dashboards/snort_dashboard.ndjson"]
+  Rules["/usr/local/etc/snort/rules/local.rules"]
+  SnortLua["/usr/local/etc/snort/snort.lua"]
+  Pipeline["ES ingest pipeline\nsnort-enrich"]
 
+  Snort -->|writes JSONL| AlertsFile
+  AlertsFile -->|read & POST| SyslogNg
+  SyslogNg -->|POST (pipeline snort-enrich)| Elasticsearch
+  Elasticsearch -->|serves data| Kibana
+  Kibana -->|export/import| DashboardFile
+  Snort -->|reads rules| Rules
+  Snort -->|reads config| SnortLua
+  Elasticsearch -->|executes ingest| Pipeline
