@@ -1,16 +1,17 @@
 # Projet — Système de détection d'anomalies et de gestion de logs pour la sécurité des réseaux
 Groupe : Eliot Droumaguet, Estelle Armandine Tchakouani Noukam, Lîna Janaan Wendtouin SAWADOGO
 
-## But du dépôt
-Ce dépôt est un **tutoriel reproductible** pour monter un labo IDS :  
-- Snort 3 (alert_json) → `/var/log/snort/alert_json.txt`  
-- syslog-ng lit le JSON et envoie vers Elasticsearch (pipeline `snort-enrich`)  
-- Kibana pour visualiser et créer des règles/alertes.
+## Objectif
+Ce dépôt fournit un guide reproductible pour la mise en place d'un laboratoire IDS + SIEM à des fins pédagogiques. 
+L'architecture proposée comprend : Snort 3 (production d'alertes JSON), syslog-ng (lecture et transfert vers Elasticsearch), 
+et Kibana pour la visualisation et la création de règles/alertes.
 
-Les scripts fournis installent Elasticsearch, Kibana et syslog-ng. Snort 3 est compilé depuis les sources (conformément à la doc officielle).
-
-## Structure du dépôt
-Voir l'arborescence dans le README. Les fichiers de configuration sont dans `configs/`. Les scripts d'installation sont dans `scripts/`.
+## Contenu principal
+- `configs/` : fichiers de configuration pour Snort, syslog-ng et le pipeline Elasticsearch.
+- `scripts/` : scripts d'installation et d'aide au déploiement (Elasticsearch, Kibana, syslog-ng, Snort, déploiement du pipeline).
+- `scripts/test_scenarios/` : scripts de simulation d'attaques (à lancer depuis la VM attacker/Kali).
+- `kibana/dashboards/` : exports de dashboards Kibana (NDJSON) prêts à importer.
+- `docs/` : documentation technique et guides d'utilisation.
 
 ## Pré-requis
 - Hôte : Linux (Ubuntu recommandé), VirtualBox installé.
@@ -123,11 +124,10 @@ Laisser Snort tourner en console le temps d’effectuer un test depuis la VM att
 5. Choose your import options, such as how to handle conflicts with existing objects.
 6. Click Import to complete the process. 
 
-## Tests / Scénarios
-Les scénarios de test (HTTP exploit, portscan, brute SSH, DNS exfil, ICMP flood) sont décrits dans [docs/test_scenarios.md](docs/test_scenarios.md) et les scripts des attaques sont proposées `script/test_scenarios/`.
-
-## Preuves
-Met dans evidence/ : captures Kibana, sortie curl ES, extrait alert_json.txt, pcap, et screenshots. Voir docs/screenshots/ pour les placeholders.
+## Tests & preuves
+Les scénarios de test sont fournis dans `scripts/test_scenarios/`. Après l'exécution d'un scénario, 
+Snort écrit une alerte au format JSONL dans `/var/log/snort/alert_json.txt`. syslog-ng lit ce fichier et poste chaque ligne
+vers Elasticsearch en utilisant le pipeline `snort-enrich`. Kibana indexe les données pour visualisation et création de règles d'alerte.
 
 ## Limitations
 Les mails d’alerte peuvent dépendre d’un compte SMTP / app password (voir configs/syslog-ng/snort-mail.conf).
