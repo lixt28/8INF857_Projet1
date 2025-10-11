@@ -92,7 +92,7 @@ Importer les OVA, configurer le réseau `lab_net` et activer Guest Additions (su
     ```
 - Lire les logs systemd si un service échoue (`journalctl -u <service>`).
 - Vérifier que Elasticsearch répond avant de lancer `04_put_pipeline.sh` (le script attend ES).
-11. **Lancer Snort en mode test (console)** — commande d'exemple
+10. **Lancer Snort en mode test (console)** — commande d'exemple
     Avant de lancer, identifie l’interface à utiliser (celle connectée à l'Internal Network) :
     ```bash
     ip a
