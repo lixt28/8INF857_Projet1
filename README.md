@@ -118,4 +118,8 @@ vers Elasticsearch en utilisant le pipeline `snort-enrich`. Kibana indexe les do
 Suivre `docs/bonus_mail.md`.
 Ne pas committer d’identifiants : utiliser configs/msmtp/etc_msmtprc.example comme modèle et remplir /etc/msmtprc localement.  
 
-   
+## Source : 
+- https://www.zenarmor.com/docs/linux-tutorials/how-to-install-and-configure-snort-on-ubuntu-linux#:~:text=a%20system%20service.-,Update%20the%20Ubuntu%20Server,and%20installed%20from%20the%20source.
+- https://docs.snort.org/start/installation
+- https://www.digitalocean.com/community/tutorials/how-to-install-elasticsearch-logstash-and-kibana-elastic-stack-on-ubuntu-22-04
+- https://www.digitalocean.com/community/tutorials/how-to-install-and-configure-elasticsearch-on-ubuntu-22-04
