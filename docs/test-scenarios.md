@@ -1,8 +1,5 @@
 # Scénarios de test — attaques reproduites, scripts, et résultats attendus
 
-> Fichier conseillé : `docs/test_scenarios.md` (placer à la racine `docs/`).  
-> Les scripts se trouvent / doivent être placés dans `scripts/test_scenarios/` (exécutables).
-
 Ce document décrit chaque scénario d'attaque, où trouver les scripts, comment les lancer (depuis la VM **attacker (Kali)**), ce qu'on attend côté Snort/syslog-ng/Elasticsearch/Kibana, et comment collecter les preuves.
 
 ---
