@@ -20,10 +20,10 @@ et Kibana pour la visualisation et la création de règles/alertes.
 - Accès Internet depuis la VM monitoring pour `apt` et clonages git.
 - Accès Internet temporaire depuis VM victim pour `apt` apache2 (nécessaire pour les tests finaux)
 
-## Installation
-- Exécuter les commandes une par une, vérifier la sortie (ok / erreur) avant de passer à la suivante.  
-- Pour Snort, remplacer <interface> par le nom réel de l’interface.  
-- Si Elasticsearch demande un peu de temps à démarrer, attendre (10–30s) avant de lancer le PUT du pipeline.  
+## Ordre d'exécution recommandé (sur la VM *monitoring*)
+> Exécuter les commandes une par une, vérifier la sortie (ok / erreur) avant de passer à la suivante.
+> Pour Snort, remplacer <interface> par le nom réel de l’interface.
+> Si Elasticsearch demande un peu de temps à démarrer, attendre (10–30s) avant de lancer le PUT du pipeline.  
 
 ### 1. Préparer l'environnement 
 Importer les VMs et configurer le réseau lab (voir [docs/howto_virtualbox.md](docs/howto_virtualbox.md))
