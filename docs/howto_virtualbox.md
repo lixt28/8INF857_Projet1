@@ -4,8 +4,17 @@
 Télécharger et installer VirtualBox depuis le site officiel :  
 https://www.virtualbox.org/wiki/Downloads
 
-Lancer l'exécutable de VirtualBox que l'on vient de télécharger, puis cliquez sur "Suivant".
+Lancer l'exécutable de VirtualBox téléchargé, puis cliquez sur "Suivant".
 ![Étape 1](images/virtualbox1.jpg)
+
+Cliquez sur "Suivant" pour poursuivre.
+![Étape 2](images/virtualbox2.jpg)
+
+Cliquez sur "oui".
+![Étape 3](images/virtualbox3.jpg)
+
+Cliquez sur "installer".
+![Étape 4](images/virtualbox4.jpg)
 
 ## 2. Où récupérer des VMs (osboxes / Kali)
 - **OSBoxes** (Ubuntu, autres distros préconfigurées) — pratique pour `monitoring` et `victim` :  
