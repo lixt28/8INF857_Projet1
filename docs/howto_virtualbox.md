@@ -12,6 +12,7 @@ Cliquez sur "Suivant" pour poursuivre.
 
 Cliquez sur "oui".
 ![Étape 3](images/virtualbox3.jpg)
+<img src="images/virtualbox3.jpg" alt="Étape 3" width="60%">
 
 Cliquez sur "installer".
 ![Étape 4](images/virtualbox4.jpg)
