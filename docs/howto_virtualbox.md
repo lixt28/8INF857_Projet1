@@ -84,9 +84,11 @@ sudo netplan apply
 ```
 
 ### Kali (attacker) — nmcli (NetworkManager)
+- En interface graphique (plus facile) faire: clic droit sur l'onglet réseau en haut à gauche-edit connections-wired connection 1-clic sur la roue dentelée en bas-ipv4 settings-renseigner adresse ip, netmask et gateway
+ou encore en passant par l'invite de commande
 ```bash
 # adapter ifname=eth0 si différent
-nmcli con add type ethernet ifname eth0 con-name lab_att \
+nmcli con add type ethernet ifname eth0 con-name lab_net \
   ipv4.addresses 192.168.1.3/24 ipv4.gateway 192.168.1.1 \
   ipv4.method manual
 nmcli con up lab_att
