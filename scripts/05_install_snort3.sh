@@ -1,3 +1,11 @@
+sudo apt update
+sudo apt install -y \
+  build-essential cmake pkg-config \
+  libpcap-dev libpcre2-dev libdnet-dev \
+  luajit libluajit-5.1-dev \
+  zlib1g-dev libhwloc-dev liblzma-dev libssl-dev \
+  libhyperscan-dev libflatbuffers-dev libunwind-dev \
+  autoconf automake libtool flex bison
 #!/usr/bin/env bash
 set -e
 # Script d'aide pour compiler Snort3 (adapté de https://docs.snort.org/start/installation)
