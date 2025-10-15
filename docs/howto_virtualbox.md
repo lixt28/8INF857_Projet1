@@ -7,6 +7,8 @@ https://www.virtualbox.org/wiki/Downloads
 Lancer l'exécutable de VirtualBox téléchargé, puis cliquez sur "Suivant".
 <img src="images/virtualbox1.jpg" alt="Étape 1" width="60%">
 
+
+
 Cliquez sur "Suivant" pour poursuivre.
 <img src="images/virtualbox2.jpg" alt="Étape 2" width="60%">
 
