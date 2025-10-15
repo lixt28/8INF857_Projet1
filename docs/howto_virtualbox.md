@@ -10,8 +10,10 @@ Lancer l'exécutable de VirtualBox téléchargé, puis cliquez sur "Suivant".
 Cliquez sur "Suivant" pour poursuivre.
 ![Étape 2](images/virtualbox2.jpg)
 
+
 Cliquez sur "oui".
 ![Étape 3](images/virtualbox3.jpg)
+
 
 Cliquez sur "installer".
 ![Étape 4](images/virtualbox4.jpg)
