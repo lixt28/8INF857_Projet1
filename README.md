@@ -1,5 +1,6 @@
 # Projet — Système de détection d'anomalies et de gestion de logs pour la sécurité des réseaux
 Groupe : Eliot Droumaguet, Estelle Armandine Tchakouani Noukam, Lîna Janaan Wendtouin SAWADOGO
+Réalisé sur ubuntu 22.04 et kali Linux
 
 ## Objectif
 Ce dépôt fournit un guide reproductible pour la mise en place d'un laboratoire IDS + SIEM à des fins pédagogiques. 
