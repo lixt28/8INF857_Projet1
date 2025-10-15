@@ -5,6 +5,7 @@ Télécharger et installer VirtualBox depuis le site officiel :
 https://www.virtualbox.org/wiki/Downloads
 
 Lancer l'exécutable de VirtualBox téléchargé, puis cliquez sur "Suivant".
+
 <img src="images/virtualbox1.jpg" alt="Étape 1" width="50%"><br>
 
 Cliquez sur "Suivant" pour poursuivre.
