@@ -14,7 +14,7 @@ et Kibana pour la visualisation et la création de règles/alertes.
 - `docs/` : documentation technique et guides d'utilisation.
 
 ## Pré-requis
-- Hôte : Linux (Ubuntu recommandé), VirtualBox installé.
+- Hôte : Linux (Ubuntu recommandé) version 22.04 dans le cas d'espèce, VirtualBox installé.
 - RAM hôte ≥ 12 GB recommandé (ELK + Snort).
 - VMs : osboxes (**victim**, **monitoring**) & Kali (**attacker**).
 - Accès Internet depuis la VM monitoring pour `apt` et clonages git.
