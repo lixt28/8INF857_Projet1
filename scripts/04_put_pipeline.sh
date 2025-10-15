@@ -1,3 +1,4 @@
+sudo tee scripts/04_put_pipeline.sh > /dev/null <<'BASH'
 #!/usr/bin/env bash
 set -euo pipefail
 
@@ -5,18 +6,12 @@ ES_URL="${ES_URL:-https://127.0.0.1:9200}"
 ES_USER="${ES_USER:-elastic}"
 ES_PASS="${ES_PASS:-}"
 
+[[ -z "$ES_PASS" ]] && { echo "ERREUR: ES_PASS est vide"; exit 1; }
+
 CURL_TLS_OPTS=""
-if [[ "$ES_URL" == https://* ]]; then
-  CURL_TLS_OPTS="-k"
-fi
+[[ "$ES_URL" == https://* ]] && CURL_TLS_OPTS="-k"
 
-if [[ -z "$ES_PASS" ]]; then
-  echo "ERREUR: ES_PASS est vide. Exporte ES_PASS puis relance." >&2
-  exit 1
-fi
-
-# Déploie le pipeline snort-enrich (version minimale)
-curl -sS ${CURL_TLS_OPTS} -u "${ES_USER}:${ES_PASS}" \
+curl -sS $CURL_TLS_OPTS -u "${ES_USER}:${ES_PASS}" \
   -H 'Content-Type: application/json' \
   -X PUT "${ES_URL}/_ingest/pipeline/snort-enrich" \
   --data-binary @- <<'JSON'
@@ -36,19 +31,10 @@ curl -sS ${CURL_TLS_OPTS} -u "${ES_USER}:${ES_PASS}" \
 }
 JSON
 
-# Vérification : afficher la pipeline
-curl -sS ${CURL_TLS_OPTS} -u "${ES_USER}:${ES_PASS}" \
+curl -sS $CURL_TLS_OPTS -u "${ES_USER}:${ES_PASS}" \
   "${ES_URL}/_ingest/pipeline/snort-enrich?pretty"
 BASH
 
-# 3) Rendre exécutable
 sudo chmod +x scripts/04_put_pipeline.sh
 
-# 4) Exporter les variables pour ce run
-export ES_URL="https://127.0.0.1:9200"
-export ES_USER="elastic"
-export ES_PASS="$MDP"
-
-# 5) Lancer le script corrigé
-sudo -E bash scripts/04_put_pipeline.sh
 
