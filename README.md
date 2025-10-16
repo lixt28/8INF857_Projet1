@@ -59,7 +59,9 @@ Importer les OVA, configurer le réseau `lab_net` et activer Guest Additions (su
    sudo systemctl status kibana --no-pager -l | sed -n '1,8p'
    ```
    Kibana écoute par défaut sur http://localhost:5601 (ou http://<monitoring_ip>:5601)
-6. **Installer Syslog-ng :**
+<img src="images/kibana(home).jpg" alt="" width="50%"><br>
+   
+7. **Installer Syslog-ng :**
    ```bash
    sudo bash scripts/03_install_syslogng.sh
    # vérifier le service
@@ -70,7 +72,7 @@ Importer les OVA, configurer le réseau `lab_net` et activer Guest Additions (su
    sleep 2
    curl -s 'http://127.0.0.1:9200/snort/_search?size=3&sort=@timestamp:desc&pretty'
    ```
-7. **Déployer le pipeline snort-enrich dans Elasticsearch :**
+8. **Déployer le pipeline snort-enrich dans Elasticsearch :**
    ```bash
    sudo bash scripts/04_put_pipeline.sh
    # afficher la réponse
@@ -78,13 +80,13 @@ Importer les OVA, configurer le réseau `lab_net` et activer Guest Additions (su
    # vérifier que la pipeline existe
    curl -s 'http://127.0.0.1:9200/_ingest/pipeline/snort-enrich?pretty'
    ```
-8. **Installer snort3 (long, prévoir une dizaine de minute) :**
+9. **Installer snort3 (long, prévoir une dizaine de minute) :**
     ```bash
     sudo bash scripts/05_install_snort3.sh
     # vérifier, afficher la version
     /usr/local/snort/bin/snort -V || true
     ```
-9. **Déployer la config et les règles snort :**
+10. **Déployer la config et les règles snort :**
     ```bash
     sudo bash scripts/06_deploy_snort_rules.sh
     # vérifie les fichiers
