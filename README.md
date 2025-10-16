@@ -5,7 +5,7 @@ Groupe : Eliot Droumaguet, Estelle Armandine Tchakouani Noukam, Lîna Janaan Wen
 ## Objectif
 Ce dépôt fournit un guide reproductible pour la mise en place d'un laboratoire IDS + SIEM à des fins pédagogiques. 
 L'architecture proposée comprend : Snort 3 (production d'alertes JSON), syslog-ng (lecture et transfert vers Elasticsearch), 
-et Kibana pour la visualisation et la création de règles/alertes.
+et Kibana pour la visualisation et la création de règles/alertes. Après avoir validé l’ensemble du pipeline (Snort → syslog-ng → Elasticsearch → Kibana), nous avons ensuite intégré Suricata afin d’enrichir la collecte
 
 ## Contenu principal
 - `configs/` : fichiers de configuration pour Snort, syslog-ng et le pipeline Elasticsearch.
