@@ -1,38 +1,15 @@
-# 1000005 – HTTP exploit basique (GET ...?exploit=1)
-alert http any any -> $HOME_NET 80 (
-  msg:"HTTP_EXPLOIT_ATTEMPT";
-  flow:to_server,established;
-  http_uri; content:"exploit=1";
-  sid:1000005; rev:2;
-)
+set -e
 
-# 1000006 – SSH brute force (beaucoup de SYN vers 22/TCP)
-alert tcp any any -> $HOME_NET 22 (
-  msg:"SSH_BRUTEFORCE_ATTEMPT";
-  flags:S;
-  detection_filter:track by_src,count 20,seconds 60;
-  sid:1000006; rev:2;
-)
+SNORT_ETC=/usr/local/etc/snort
 
-# 1000007 – Port scan (SYN scan) vers plusieurs ports
-alert tcp any any -> $HOME_NET any (
-  msg:"PORTSCAN_SYN";
-  flags:S;
-  detection_filter:track by_src,count 50,seconds 60;
-  sid:1000007; rev:2;
-)
+sudo mkdir -p "$SNORT_ETC/rules"
 
-# 1000008 – DNS exfil (payload "exfil" vers 53/UDP)
-alert udp any any -> $HOME_NET 53 (
-  msg:"DNS_EXFIL_SUSPECT";
-  content:"exfil"; nocase;
-  sid:1000008; rev:2;
-)
+sudo cp configs/snort/local.rules "$SNORT_ETC/rules/local.rules"
 
-# 1000009 – ICMP ping flood (echo request)
-alert icmp any any -> $HOME_NET any (
-  msg:"ICMP_FLOOD_ATTEMPT";
-  icmp_type:8;
-  detection_filter:track by_src,count 10,seconds 10;
-  sid:1000009; rev:2;
-)
+sudo cp "$SNORT_ETC/snort.lua" "$SNORT_ETC/snort.lua.bak_$(date +%Y-%m-%d_%H-%M-%S)"
+
+sudo cp configs/snort/snort.lua "$SNORT_ETC/snort.lua"
+
+sudo mkdir -p /var/log/snort
+
+sudo chown root:root /var/log/snort || true
