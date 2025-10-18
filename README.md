@@ -59,7 +59,6 @@ Importer les OVA, configurer le réseau `lab_net` et activer Guest Additions (su
    sudo systemctl status kibana --no-pager -l | sed -n '1,8p'
    ```
    Kibana écoute par défaut sur http://localhost:5601 (ou http://<monitoring_ip>:5601)
-<img src="docs/images/kibana(home).jpg" alt="." width="50%"><br>
    
 7. **Installer Syslog-ng :**
    ```bash
