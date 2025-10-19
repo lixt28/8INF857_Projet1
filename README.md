@@ -151,6 +151,7 @@ Suricata génère des journaux détaillés au format EVE JSON, transmis vers Ela
     sudo suricata -c /etc/suricata/suricata.yaml -i <interface> \
    -S /etc/suricata/rules/local.rules -l /var/log/suricata -v
 ```
+   
 
 ## Source : 
 - https://www.zenarmor.com/docs/linux-tutorials/how-to-install-and-configure-snort-on-ubuntu-linux#:~:text=a%20system%20service.-,Update%20the%20Ubuntu%20Server,and%20installed%20from%20the%20source.
