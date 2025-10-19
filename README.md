@@ -77,8 +77,11 @@ Importer les OVA, configurer le réseau `lab_net` et activer Guest Additions (su
    # vérifier que la pipeline existe
    curl -s 'http://127.0.0.1:9200/_ingest/pipeline/snort-enrich?pretty'
    ```
-9. **Installer snort3 (long, prévoir une dizaine de minute) :**
+9. **Installer libDAQ et Snort3 (long, prévoir une dizaine de minute) :**
     ```bash
+    # Dans un premier temps
+    sudo bash scripts/05_install_libDAQ.sh
+    # Dans un second temps, si aucune erreur
     sudo bash scripts/05_install_snort3.sh
     # vérifier, afficher la version
     snort -V
