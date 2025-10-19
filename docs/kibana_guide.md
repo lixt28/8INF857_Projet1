@@ -31,6 +31,7 @@ NB: la connexion à Kibana peut également se faire automatiquement grâce à un
 Pour se faire, aller dans le pc monitoring et entrer la commande sudo /usr/share/elasticsearch/bin/elasticsearch-create-enrollment-token -s kibana, copier le token généré et le coller dans la page d'acceuil de kibana dans kali
 
    b) Connexion à élastic
+   
 Après s'être connecté à Kibana, la page de connexion a Élastic s'ouvrira. Entrer le nom d'utilisateur: "Elastic" dans notre cas et le mot de passe "MotDePasse".
 
 ## 2) Data views (index patterns)
