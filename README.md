@@ -130,6 +130,10 @@ Après s'être connecté à Kibana, la page de connexion a Élastic s'ouvrira. E
 Suivre `docs/kibana_guide.md`, aller directement à la section 5) pour importer.
 Exemple de dashboard:
 <img src="docs/images/kibana1.png" width="600">
+Sinon dans `Discover`:
+<img src="docs/images/preuve1.png" width="600">
+<img src="docs/images/preuve2.png" width="600">
+<img src="docs/images/preuve3.png" width="600">
 
 ## Tests & preuves
 Les scénarios de test sont fournis dans `scripts/test_scenarios/`. Après l'exécution d'un scénario, 
