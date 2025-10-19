@@ -10,5 +10,5 @@ cd build
 make -j"$(nproc)"
 sudo make install
 
-snort -V
-echo "Snort3 installé dans $MY_PATH. Si 'snort -V' fonctionne, continuez la configuration (snort.lua, rules)."
+#snort -V
+
