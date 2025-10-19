@@ -3,7 +3,7 @@
 
 > **But** : envoyer un e‑mail pour certaines alertes Snort lues dans `/var/log/snort/alert_json.txt`, via **syslog‑ng**.  
 > **Ce qui est garanti** : si les compteurs syslog‑ng montrent `written > 0` sur la destination mail, **syslog‑ng a bien remis le message au client SMTP**.  
-> **Ce qui peut échouer** : la **livraison SMTP** (authentification, blocage réseau, antispam, etc.). Tu trouveras ci‑dessous les preuves à collecter et les causes probables quand ça n’arrive pas en boîte mail.
+> **Ce qui peut échouer** : la **livraison SMTP** (authentification, blocage réseau, antispam, etc.).
 
 ---
 
