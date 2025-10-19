@@ -11,6 +11,9 @@ Ce document montre les alertes générées par Suricata et les vues correspondan
 
 <img src="docs/images/snort3-1.jpeg" width="600">
 
+<img src="images/virtualbox1.jpg" alt="Étape 1" width="50%"><br>
+
+
 2.SSH brute-force (SYN)
 
 <img src="docs/images/SSH brute force(suricata).jpg" alt="Suricata - SSH brute force" width="600">
