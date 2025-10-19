@@ -134,15 +134,16 @@ Créer un tableau de bord **“Snort – Overview”** et y ajouter des visualis
 1. *Kibana* → **Stack Management** → **Saved Objects** → **Export**  
 2. **Sélectionne** :  
    - **Data views** : `snort`, `alerts-snort`  
-   - **Dashboards** : `Snort – Overview`  
+   - **Dashboards** : `Sécurité Informatique - Projet 1 (Eliot, Estelle, Lina)`  
    - **Visualizations** liées  
-   - (Option) Saved searches si tu en as  
-3. Coche **“Include related objects”**, puis **Export** → télécharge le fichier `kibana-saved-objects.ndjson`.
+3. Coche **“Include related objects”**, puis **Export** → télécharger le fichier `kibana-saved-objects.ndjson`.
 
 > **Export des règles** : *Stack Management* → **Rules and Connectors** → sélectionner tes règles → **Export** (génère aussi un `*.ndjson`).  
 > Les **connecteurs** (ex. Index) s’exportent, mais **les secrets** (pour e-mail, etc.) ne sont **pas** inclus et doivent être reconfigurés après import.
 
 ### 5.2 Importer
+> Avant l'importation, il faut copier les clefs d'encryption dans la config `/etc/kibana/kibana.yml`, elle peuvent être générer avec `sudo /usr/share/kibana/bin/kibana-encryption-keys generate` (copier les résultats `xpack..` directement dans kibana.yml)
+
 1. *Kibana* → **Stack Management** → **Saved Objects** → **Import**  
 2. Glisser-déposer le `kibana-saved-objects.ndjson` → cocher **“Automatically overwrite conflicts”** → **Import**.  
 3. Pour les **règles**, aller dans **Rules and Connectors** → **Import** le fichier `*.ndjson` des règles.  
