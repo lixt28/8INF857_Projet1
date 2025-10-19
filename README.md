@@ -1,7 +1,5 @@
 # Projet — Système de détection d'anomalies et de gestion de logs pour la sécurité des réseaux (Réalisé sur ubuntu 22.04 et kali Linux 2025)
 Groupe : Eliot Droumaguet, Estelle Armandine Tchakouani Noukam, Lîna Janaan Wendtouin Sawadogo
-<img src="docs/images/http_exploit_suricata.jpg" width="100%"><br>
-
 
 ## Objectif
 Ce dépôt fournit un guide reproductible pour la mise en place d'un laboratoire IDS + SIEM à des fins pédagogiques. 
