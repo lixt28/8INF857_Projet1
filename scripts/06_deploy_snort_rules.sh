@@ -9,5 +9,4 @@ sudo mkdir -p /var/log/snort
 sudo chown root:root /var/log/snort || true
 # echo "Règles déployées. Lance Snort (ex):"
 # echo "sudo /usr/local/snort/bin/snort -c /usr/local/etc/snort/snort.lua -i enp0s3 -A alert_json -l /var/log/snort -k none"
-sudo sed -i -E 's/\bnocase;?//g' /usr/local/etc/snort/rules/local.rules
-sudo sed -i -E 's/\bicmp_type\b/itype/g' /usr/local/etc/snort/rules/local.rules
+
