@@ -68,20 +68,37 @@ Importer les OVA, configurer le réseau `lab_net` et activer Guest Additions (su
    sudo systemctl status kibana
    ```
    Kibana écoute par défaut sur http://localhost:5601 (ou http://<monitoring_ip>:5601)
+
+6.1 ## 1) connexion a Elasticsearch-Kibana
+   a) Connexion à Kibana
+   - Dans la barre de recherche du navigateur de notre kali, entrer http://192.168.1.1:5601
+   - Entrer dans la barre au milieu de l'écran https://192.168.1.1:9200
+   - Cliquer sur "se connecter manuellement" puis entrer le nom d'utilisateur Kibana_System puis le mot de passe (MotDePasse dans notre cas)
+
+   - <img width="1271" height="798" alt="elastic" src="https://github.com/user-attachments/assets/a4285347-0bb2-4d46-a3af-fc65b197c223" />
+
+   - Aller dans le PC monitoring et entrer la commande sudo /usr/share/kibana/bin/kibana-verification-code pour obtenir le code de verification demandé par kibana et le rentrer dans le PC Attaker (kali).
+     
+NB: la connexion à Kibana peut également se faire automatiquement grâce à un token pouvant être généré.
+Pour se faire, aller dans le pc monitoring et entrer la commande sudo /usr/share/elasticsearch/bin/elasticsearch-create-enrollment-token -s kibana, copier le token généré et le coller dans la page d'acceuil de kibana dans kali
+
+   b) Connexion à Élasticsearch
    
-7. **Installer Syslog-ng :**
+Après s'être connecté à Kibana, la page de connexion a Élastic s'ouvrira. Entrer le nom d'utilisateur: "Elastic" dans notre cas et le mot de passe "MotDePasse".
+   
+8. **Installer Syslog-ng :**
    ```bash
    sudo bash scripts/03_install_syslogng.sh
    # vérifier le service
    sudo systemctl status syslog-ng
    ```
-8. **Déployer le pipeline snort-enrich dans Elasticsearch :**
+9. **Déployer le pipeline snort-enrich dans Elasticsearch :**
    ```bash
    sudo bash scripts/04_put_pipeline.sh
    # vérifier que la pipeline existe
    curl -s 'http://127.0.0.1:9200/_ingest/pipeline/snort-enrich?pretty'
    ```
-9. **Installer Snort3 (long, prévoir une dizaine de minute) :**
+10. **Installer Snort3 (long, prévoir une dizaine de minute) :**
     ```bash
     sudo bash scripts/05_install_snort3.sh
     ```
