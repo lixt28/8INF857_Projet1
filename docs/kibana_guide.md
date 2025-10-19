@@ -34,6 +34,7 @@ Pour se faire, aller dans le pc monitoring et entrer la commande sudo /usr/share
    
 Après s'être connecté à Kibana, la page de connexion a Élastic s'ouvrira. Entrer le nom d'utilisateur: "Elastic" dans notre cas et le mot de passe "MotDePasse".
 
+
 ## 2) Data views (index patterns)
 
 ### 2.1 Créer la data view **snort**
