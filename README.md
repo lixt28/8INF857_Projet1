@@ -31,6 +31,7 @@ Importer les OVA, configurer le réseau `lab_net` et activer Guest Additions (su
 
 1. **Cloner le dépôt sur la monitoring :**
    ```bash
+   sudo apt install git # si pas déjà installé
    git clone https://github.com/lixt28/8INF857_Projet1.git
    cd 8INF857_Projet1
    ```
