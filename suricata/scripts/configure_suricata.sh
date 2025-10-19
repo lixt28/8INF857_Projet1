@@ -1,81 +1,46 @@
-#!/usr/bin/env bash
-set -euo pipefail
+# Écrire la conf syslog-ng minimale (pas de @version, pas de @include, pas de template)
+SYSLOGNG_DST="/etc/syslog-ng/conf.d/suricata-es.conf"
+sudo tee "$SYSLOGNG_DST" >/dev/null <<'EOF'
+# Suricata EVE JSON -> Elasticsearch (_bulk)
 
+source s_suricata_eve {
+    file("/var/log/suricata/eve.json"
+         flags(no-parse)
+         program-override("suricata"));
+};
 
+destination d_es_suricata {
+    http(
+        url("http://127.0.0.1:9200/_bulk")
+        method("POST")
+        headers("Content-Type: application/json")
+        body("{\"index\":{\"_index\":\"suricata-eve-${YEAR}.${MONTH}.${DAY}\"}}\n$MSG\n")
+        workers(1)
+        batch-lines(200)
+        batch-timeout(2000)
+    );
+};
 
-IFACE="${1:-${SURICATA_IFACE:-}}"
-ES_URL="${2:-${ES_URL:-http://127.0.0.1:9200}}"
+log {
+    source(s_suricata_eve);
+    destination(d_es_suricata);
+    flags(flow-control);
+};
+EOF
 
-
-if [ -z "${IFACE}" ]; then
-  filt='!($1 ~ /^(docker|veth|br-|virbr|vboxnet|tailscale|wg|zt|cali)/)'
-
-  
-  for pat in '^10\.' '^172\.(1[6-9]|2[0-9]|3[0-1])\.' '^192\.168\.'; do
-    cand=$(ip -o -4 addr show up | awk '$2!="lo"{print $2,$4}' \
-           | awk "$filt" | awk -v P="$pat" '$2 ~ P {print $1; exit}')
-    if [ -n "$cand" ]; then
-      IFACE="$cand"
-      break
-    fi
-  done
-
-  
-  if [ -z "${IFACE}" ]; then
-    IFACE=$(ip -o link show up | awk -F': ' '$2!="lo"{print $2}' \
-            | awk "$filt" | head -n1)
-  fi
-fi
-
-if [ -z "${IFACE}" ]; then
-  printf "ERROR: Impossible de déterminer l'interface. Spécifie-la: sudo bash ... enp0s3\n" >&2
+# Sanity check: refuser toute conf qui réintroduit @version / include scl.conf / template
+if grep -E '^\s*@version|^\s*@include\s+"scl\.conf"|^\s*template\s' "$SYSLOGNG_DST" >/dev/null; then
+  printf "Refus: /etc/syslog-ng/conf.d/suricata-es.conf contient des directives interdites.\n" >&2
   exit 1
 fi
 
-
-YAML="/etc/suricata/suricata.yaml"
-RULES_DIR="/etc/suricata/rules"
-REPO_ROOT="$(cd "$(dirname "$0")/.." && pwd)"
-LOCAL_RULES="${REPO_ROOT}/config/local.rules"
-SYSLOGNG_SRC="${REPO_ROOT}/config/suricata-es.conf"
-SYSLOGNG_DST="/etc/syslog-ng/conf.d/suricata-es.conf"
-
-
-if [ -f "$YAML" ]; then
-  sudo cp -n "$YAML" "${YAML}.bak.$(date +%s)" || true
+# S'assurer que le module HTTP est là
+if ! dpkg -s syslog-ng-mod-http >/dev/null 2>&1; then
+  sudo apt update && sudo apt install -y syslog-ng-mod-http
 fi
 
+# Test de syntaxe avant restart
+sudo syslog-ng -s
 
-sudo mkdir -p "$RULES_DIR"
-sudo cp -f "$LOCAL_RULES" "$RULES_DIR/local.rules"
-sudo chown root:root "$RULES_DIR/local.rules"
-sudo chmod 0644 "$RULES_DIR/local.rules"
-
-
-if [ -f "$YAML" ]; then
-  
-  sudo sed -i "s/^\(\s*interface:\).*/\1 ${IFACE}/" "$YAML" || true
-
- 
-  sudo sed -i 's/^\(\s*#\s*\)\?enabled: *no/  enabled: yes/' "$YAML" || true
-  sudo sed -i 's|^\(\s*file:\).*|\1 /var/log/suricata/eve.json|' "$YAML" || true
-  sudo sed -i 's/^\(\s*types:\).*/\1 [ alert, dns, http, tls, ssh, flow, anomaly, stats ]/' "$YAML" || true
-
-  
-  if ! grep -q 'local.rules' "$YAML"; then
-    sudo sed -i 's|^rule-files:.*|rule-files:\n  - local.rules|' "$YAML"
-  fi
-fi
-
-
-sudo cp -f "$SYSLOGNG_SRC" "$SYSLOGNG_DST"
-sudo chown root:root "$SYSLOGNG_DST"
-sudo chmod 0644 "$SYSLOGNG_DST"
-
-# Redémarrer services
-sudo systemctl restart syslog-ng || true
-sudo systemctl restart suricata || true
-
-
-
-
+# OK => restart
+sudo systemctl restart syslog-ng
