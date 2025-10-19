@@ -134,7 +134,6 @@ Suricata génère des journaux détaillés au format EVE JSON, transmis vers Ela
     sudo bash suricata/scripts/10_install_suricata.sh
     ```
 2. ** Configuration de Suricata et du flux vers Elasticsearch:**
-3. 
    ```bash
     sudo bash suricata/scripts/11_configure_suricata.sh
    #Verification
@@ -148,10 +147,9 @@ Suricata génère des journaux détaillés au format EVE JSON, transmis vers Ela
 ```
 4. **Suricata en mode test ** — (remplacer <interface> par l'interface réelle)
    ```bash
-    sudo suricata -c /etc/suricata/suricata.yaml -i <interface> \
+   sudo suricata -c /etc/suricata/suricata.yaml -i <interface> \
    -S /etc/suricata/rules/local.rules -l /var/log/suricata -v
-```
-   
+    ```
 
 ## Source : 
 - https://www.zenarmor.com/docs/linux-tutorials/how-to-install-and-configure-snort-on-ubuntu-linux#:~:text=a%20system%20service.-,Update%20the%20Ubuntu%20Server,and%20installed%20from%20the%20source.
