@@ -79,8 +79,6 @@ Importer les OVA, configurer le réseau `lab_net` et activer Guest Additions (su
 8. **Déployer le pipeline snort-enrich dans Elasticsearch :**
    ```bash
    sudo bash scripts/04_put_pipeline.sh
-   # afficher la réponse
-   cat /tmp/put_pipeline_resp.json
    # vérifier que la pipeline existe
    curl -s 'http://127.0.0.1:9200/_ingest/pipeline/snort-enrich?pretty'
    ```
