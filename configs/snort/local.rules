@@ -25,7 +25,7 @@ alert tcp any any -> $HOME_NET any (
 # 1000008 – DNS exfil (payload "exfil" vers 53/UDP)
 alert udp any any -> $HOME_NET 53 (
   msg:"DNS_EXFIL_SUSPECT";
-  content:"exfil"; nocase;
+  content:"exfil";
   sid:1000008; rev:2;
 )
 
