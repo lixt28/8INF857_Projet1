@@ -136,6 +136,10 @@ Suricata génère des journaux détaillés au format EVE JSON, transmis vers Ela
 2. ** Configuration de Suricata et du flux vers Elasticsearch:**
    ```bash
     sudo bash suricata/scripts/11_configure_suricata.sh
+   #Verification
+   sudo systemctl status suricata --no-pager -l | sed -n '1,10p'
+   sudo tail -n 5 /var/log/suricata/eve.json
+   curl -s 'http://127.0.0.1:9200/_cat/indices/suricata-eve-*?h=index,docs.count'
     ```
 
 ## Source : 
