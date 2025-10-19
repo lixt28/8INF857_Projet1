@@ -3,7 +3,7 @@ Ce document montre les alertes générées par Suricata et les vues correspondan
 
 1. HTTP exploit 
 <img src="docs/images/http exploit(suricta).jpg.jpg" width="100%"><br>
-<img src="docs/images/http_exploit_kibana.jpg"   width="100%"><br><br>
+<img src="docs/images/http.jpg"   width="100%"><br><br>
 
 2. SSH brute-force
 <img src="docs/images/ssh_bruteforce_suricata.jpg" width="100%"><br>
