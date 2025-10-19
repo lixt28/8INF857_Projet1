@@ -51,8 +51,10 @@ Importer les OVA, configurer le réseau `lab_net` et activer Guest Additions (su
    ```bash
    sudo bash scripts/01_install_elasticsearch.sh
    # vérifier l'état du cluster (attendre quelques secondes si le service démarre)
-   curl -s 'http://127.0.0.1:9200/_cluster/health?pretty'
+   curl -X GET http://localhost:9200
    ```
+   Désindenter la ligne http.port et mettre "false" dans "xpack.security.enabled" et "xpack.security.http.ssl" pour faciliter la mise en place
+   <img src="images/elasticsearch1.png" alt="Étape 1" width="50%"><br>
 5. **Installer Kibana :**
    ```bash
    sudo bash scripts/02_install_kibana.sh
