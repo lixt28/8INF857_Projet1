@@ -26,7 +26,7 @@ Ce guide résume la configuration **Kibana** réalisée pour visualiser les év�
    - Entrer dans la barre au milieu de l'écran https://192.168.1.1:9200
    - Cliquer sur "se connecter manuellement" puis entrer le nom d'utilisateur Kibana_System puis le mot de passe (MotDePasse dans notre cas)
    - Aller dans le PC monitoring et entrer la commande sudo /usr/share/kibana/bin/kibana-verification-code pour obtenir le code de verification demandé par kibana et le rentrer dans le PC Attaker (kali).
-## NB: la connexion à Kibana peut également se faire automatiquement grâce à un token pouvant être généré.
+NB: la connexion à Kibana peut également se faire automatiquement grâce à un token pouvant être généré.
 Pour se faire, aller dans le pc monitoring et entrer la commande sudo /usr/share/elasticsearch/bin/elasticsearch-create-enrollment-token -s kibana, copier le token généré et le coller dans la page d'acceuil de kibana dans kali
 
    b) Connexion à élastic
