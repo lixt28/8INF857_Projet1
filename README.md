@@ -61,7 +61,7 @@ Importer les OVA, configurer le réseau `lab_net` et activer Guest Additions (su
    ```bash
    sudo bash scripts/02_install_kibana.sh
    # vérifier le statut systemd
-   sudo systemctl status kibana --no-pager -l | sed -n '1,8p'
+   sudo systemctl status kibana
    ```
    Kibana écoute par défaut sur http://localhost:5601 (ou http://<monitoring_ip>:5601)
    
@@ -69,7 +69,7 @@ Importer les OVA, configurer le réseau `lab_net` et activer Guest Additions (su
    ```bash
    sudo bash scripts/03_install_syslogng.sh
    # vérifier le service
-   sudo systemctl status syslog-ng --no-pager -l | sed -n '1,8p'
+   sudo systemctl status syslog-ng
    # tester l'envoi d'un message "fake" pour vérifier la route syslog-ng -> ES :
    sudo bash -c 'echo "{ \"seconds\": $(date +%s), \"msg\": \"TEST_PIPELINE\", \"rule\": \"0:0:0\" }" >> /var/log/snort/alert_json.txt'
    # puis regarder si ES a ingéré
