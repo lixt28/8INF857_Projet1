@@ -45,7 +45,7 @@ Importer les OVA, configurer le réseau `lab_net` et activer Guest Additions (su
 3. **Mettre à jour les paquets du système et installer pré-requis :**
    ```bash
    sudo apt update && sudo apt upgrade -y
-   sudo apt install -y curl wget git build-essential apt-transport-https ca-certificates gnupg jq
+   sudo apt install -y curl wget build-essential apt-transport-https ca-certificates gnupg jq
    ```
 4. **Installer Elasticsearch :**
    ```bash
