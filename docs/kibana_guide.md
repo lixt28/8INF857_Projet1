@@ -21,7 +21,7 @@ Ce guide résume la configuration **Kibana** réalisée pour visualiser les év�
 ---
 
 ## 1) connexion a Elasticsearch-Kibana
-   a) Connexion a Kibana
+   a) Connexion à Kibana
    - Dans la barre de recherche du navigateur de notre kali, entrer http://192.168.1.1:5601
    - Entrer dans la barre au milieu de l'écran https://192.168.1.1:9200
    - Cliquer sur "se connecter manuellement" puis entrer le nom d'utilisateur Kibana_System puis le mot de passe (MotDePasse dans notre cas)
@@ -29,20 +29,19 @@ Ce guide résume la configuration **Kibana** réalisée pour visualiser les év�
 ## NB: la connexion à Kibana peut également se faire automatiquement grâce à un token pouvant être généré.
 Pour se faire, aller dans le pc monitoring et entrer la commande sudo /usr/share/elasticsearch/bin/elasticsearch-create-enrollment-token -s kibana, copier le token généré et le coller dans la page d'acceuil de kibana dans kali
 
+   b) Connexion à élastic
+Après s'être connecté à Kibana, la page de connexion a Élastic s'ouvrira. Entrer le nom d'utilisateur: "Elastic" dans notre cas et le mot de passe "MotDePasse".
 
-   b) Connexion a elastic
-Apres etre connecte a Kibana, la page de connexion a Elastic s<ouvrira. Entrer le nom d<utilisateur: Elastic et le mot de passe MotDePasse.
+## 2) Data views (index patterns)
 
-## 1) Data views (index patterns)
-
-### 1.1 Créer la data view **snort**
+### 2.1 Créer la data view **snort**
 1. *Kibana* → **Stack Management** → **Data views** → **Create data view**  
 2. **Name** : `snort`  
    **Index pattern** : `snort`  
    **Time field** : **`@timestamp`**  
 3. **Save data view**.
 
-### 1.2 Créer la data view **alerts-snort** (pour les alertes Kibana)
+### 2.2 Créer la data view **alerts-snort** (pour les alertes Kibana)
 1. *Kibana* → **Stack Management** → **Data views** → **Create data view**
 2. **Name** : `alerts-snort`  
    **Index pattern** : `alerts-snort`  
@@ -53,7 +52,7 @@ Apres etre connecte a Kibana, la page de connexion a Elastic s<ouvrira. Entrer l
 
 ---
 
-## 2) Dashboard (Lens)
+## 3) Dashboard (Lens)
 
 Créer un tableau de bord **“Snort – Overview”** et y ajouter des visualisations **Lens**.
 
@@ -74,15 +73,15 @@ Créer un tableau de bord **“Snort – Overview”** et y ajouter des visualis
 
 ---
 
-## 3) Règles (Alerts) – écrire dans `alerts-snort`
+## 4) Règles (Alerts) – écrire dans `alerts-snort`
 
-### 3.1 Créer un connecteur **Index**
+### 4.1 Créer un connecteur **Index**
 1. *Kibana* → **Stack Management** → **Connectors** → **Create connector** → **Index**  
 2. **Connector name** : `Index: alerts-snort`  
    **Index** : `alerts-snort`  
 3. **Save**.
 
-### 3.2 Créer une règle **Elasticsearch query** (ex. Port scan SYN)
+### 4.2 Créer une règle **Elasticsearch query** (ex. Port scan SYN)
 1. *Kibana* → **Stack Management** → **Rules** → **Create rule**  
 2. **Rule type** : **Elasticsearch query**  
 3. **Name** : `Snort – Portscan SYN (1m)`  
@@ -119,7 +118,7 @@ Créer un tableau de bord **“Snort – Overview”** et y ajouter des visualis
 - Action : **Index: alerts-snort** + **Summary of alerts / On check intervals / Query matched**  
 - Message JSON similaire (tu peux ajouter des champs fixes).
 
-### 3.3 Vérifier l’exécution des règles
+### 4.3 Vérifier l’exécution des règles
 - Dans la page de la règle → **History / Execution log** :  
   - **Search count** : nombre de documents qui matchent la requête dans la fenêtre.  
   - **Actions executed** : doit être **≥ 1** quand ça matche.
@@ -131,7 +130,7 @@ Créer un tableau de bord **“Snort – Overview”** et y ajouter des visualis
 
 ---
 
-## 4) Bonnes pratiques & dépannage rapide
+## 5) Bonnes pratiques & dépannage rapide
 
 - **Fenêtre de temps** : pour tester, mets **1 minute** (schedule) / **1 minute** (time window).  
 - **Action frequency** : *Summary of alerts* + *On check intervals* + *Run when: Query matched* → 1 doc par exécution si la requête matche.  
@@ -141,9 +140,9 @@ Créer un tableau de bord **“Snort – Overview”** et y ajouter des visualis
 
 ---
 
-## 5) Export & Import (Save Objects, `*.ndjson`)
+## 6) Export & Import (Save Objects, `*.ndjson`)
 
-### 5.1 Exporter
+### 6.1 Exporter
 1. *Kibana* → **Stack Management** → **Saved Objects** → **Export**  
 2. **Sélectionne** :  
    - **Data views** : `snort`, `alerts-snort`  
@@ -154,7 +153,7 @@ Créer un tableau de bord **“Snort – Overview”** et y ajouter des visualis
 > **Export des règles** : *Stack Management* → **Rules and Connectors** → sélectionner tes règles → **Export** (génère aussi un `*.ndjson`).  
 > Les **connecteurs** (ex. Index) s’exportent, mais **les secrets** (pour e-mail, etc.) ne sont **pas** inclus et doivent être reconfigurés après import.
 
-### 5.2 Importer
+### 6.2 Importer
 > Avant l'importation, il faut copier les clefs d'encryption dans la config `/etc/kibana/kibana.yml`, elle peuvent être générer avec `sudo /usr/share/kibana/bin/kibana-encryption-keys generate` (copier les résultats `xpack..` directement dans kibana.yml)
 
 1. *Kibana* → **Stack Management** → **Saved Objects** → **Import**  
@@ -164,7 +163,7 @@ Créer un tableau de bord **“Snort – Overview”** et y ajouter des visualis
 
 ---
 
-## 6) Résumé express
+## 7) Résumé express
 
 - **Data views** : `snort` & `alerts-snort`, Time field = `@timestamp`  
 - **Dashboard Lens** : timeline, top rules, top IP src/dst, protocol breakdown  
