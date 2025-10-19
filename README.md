@@ -119,7 +119,7 @@ Exemple de dashboard:
 Les scénarios de test sont fournis dans `scripts/test_scenarios/`. Après l'exécution d'un scénario, 
 Snort écrit une alerte au format JSONL dans `/var/log/snort/alert_json.txt`. syslog-ng lit ce fichier et poste chaque ligne
 vers Elasticsearch en utilisant le pipeline `snort-enrich`. Kibana indexe les données pour visualisation et création de règles d'alerte.
-Une fois qu'on a effectuer les tests, les résultats apparaissent dans le dashboard:
+Une fois qu'on a effectuer les tests, les résultats apparaissent dans le dashboard:  
 <img src="docs/images/kibana2.png" width="600">
 
 ## Bonus: Emails d'alertes
