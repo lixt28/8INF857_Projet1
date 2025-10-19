@@ -105,7 +105,9 @@ Importer les OVA, configurer le réseau `lab_net` et activer Guest Additions (su
     > Noter le nom de l'interface (ex: enp0s3 ou ens33)
     Lancer Snort (remplacer <interface> par l'interface réelle) :
     ```bash
-    sudo /usr/local/snort/bin/snort -c /usr/local/etc/snort/snort.lua -i <interface> -A alert_json -l /var/log/snort -k none -s 0
+    sudo /usr/local/bin/snort -c /usr/local/etc/snort/snort.lua -i <interface> -A alert_json -l /var/log/snort -k none -s 0
+    # ou
+    sudo /usr/local/bin/snort -c /usr/local/etc/snort/snort.lua -i <interface> --daq pcap --daq-dir /usr/local/lib/daq_s3/lib/daq -A alert_json -l /var/log/snort -k none
     ```
     - `-A alert_json` → écrit JSON dans /var/log/snort/alert_json.txt
     - `-s 0` → capture full packet (utile pour HTTP content checks)
