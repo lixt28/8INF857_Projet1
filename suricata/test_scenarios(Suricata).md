@@ -1,7 +1,7 @@
 Ce document montre les alertes générées par Suricata et les vues correspondantes observées dans Kibana pour les scénarios de test.
 
 
-<!-- 1. HTTP exploit -->
+1. HTTP exploit 
 <img src="docs/images/http_exploit_suricata.jpg" width="50%"><br>
 <img src="docs/images/http_exploit_kibana.jpg"   width="100%"><br><br>
 
