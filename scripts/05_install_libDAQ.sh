@@ -10,5 +10,4 @@ cd libdaq
 ./configure --prefix=/usr/local/lib/daq_s3
 make
 sudo make install
-cat /etc/ld.so.conf.d/libdaq3.conf
 sudo ldconfig
