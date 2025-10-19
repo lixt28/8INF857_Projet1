@@ -128,7 +128,7 @@ Objectif
 Intégrer Suricata afin d’enrichir la collecte d’événements réseau en parallèle de Snort.
 Suricata génère des journaux détaillés au format EVE JSON, transmis vers Elasticsearch via syslog-ng pour visualisation dans Kibana.
 
-1. ** Installation de Suricata:**
+1. ** Installation de Suricata:** -
    Exécuter sur la VM monitoring :
    ```bash
     sudo bash suricata/scripts/10_install_suricata.sh
