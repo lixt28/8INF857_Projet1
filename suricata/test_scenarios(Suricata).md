@@ -2,22 +2,22 @@ Ce document montre les alertes générées par Suricata et les vues correspondan
 
 
 1. HTTP exploit 
-<img src="docs/images/http_exploit_suricata.jpg" width="50%"><br>
+<img src="docs/images/http_exploit_suricata.jpg" width="100%"><br>
 <img src="docs/images/http_exploit_kibana.jpg"   width="100%"><br><br>
 
-<!-- 2. SSH brute-force (SYN) -->
+2. SSH brute-force
 <img src="docs/images/ssh_bruteforce_suricata.jpg" width="100%"><br>
 <img src="docs/images/ssh_bruteforce_kibana.jpg"   width="100%"><br><br>
 
-<!-- 3. Port scan (SYN) -->
+ 3. Port scan
 <img src="docs/images/portscan_suricata.jpg" width="100%"><br>
 <img src="docs/images/portscan_kibana.jpg"   width="100%"><br><br>
 
-<!-- 4. DNS exfil (UDP payload) -->
+4. DNS exfil
 <img src="docs/images/dns_exfil_suricata.jpg" width="100%"><br>
 <img src="docs/images/dns_exfil_kibana.jpg"   width="100%"><br><br>
 
-<!-- 5. ICMP flood (echo) -->
+ 5. ICMP flood 
 <img src="docs/images/icmp_flood_suricata.jpg" width="100%"><br>
 <img src="docs/images/icmp_flood_kibana.jpg"   width="100%"><br><br>
    
