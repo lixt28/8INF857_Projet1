@@ -52,8 +52,10 @@ Importer les OVA, configurer le réseau `lab_net` et activer Guest Additions (su
    sudo bash scripts/01_install_elasticsearch.sh
    ```
    Désindenter la ligne "http.port" et mettre "false" dans "xpack.security.enabled" et "xpack.security.http.ssl" pour faciliter la mise en place.
-   <img src="docs/images/ELK1.jpg" width="300">
-   > Vérifier l'état du cluster avec `curl -X GET http://localhost:9200`
+   <img src="docs/images/ELK1.jpg" width="1000"><img src="docs/images/ELK2.jpg" width="1000">
+
+   Vérifier l'état du cluster avec `curl -X GET http://localhost:9200`, le résultat doit être le suivant:
+   <img src="docs/images/ELK3.jpg" width="1000">
 
 6. **Installer Kibana :**
    ```bash
