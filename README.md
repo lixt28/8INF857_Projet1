@@ -54,7 +54,7 @@ Importer les OVA, configurer le réseau `lab_net` et activer Guest Additions (su
    curl -X GET http://localhost:9200
    ```
    Désindenter la ligne http.port et mettre "false" dans "xpack.security.enabled" et "xpack.security.http.ssl" pour faciliter la mise en place.  
-   <img src="images/ELK1.jpg" alt="" width="50%"><br>
+   <img src="images/ELK1.jpg" alt="kk" width="50%"><br>
 
 5. **Installer Kibana :**
    ```bash
