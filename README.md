@@ -69,8 +69,7 @@ Importer les OVA, configurer le réseau `lab_net` et activer Guest Additions (su
    ```
    Kibana écoute par défaut sur http://localhost:5601 (ou http://<monitoring_ip>:5601)
 
-6.1 ## 1) connexion a Elasticsearch-Kibana
-   a) Connexion à Kibana
+6.1 **Connexion à Kibana**
    - Dans la barre de recherche du navigateur de notre kali, entrer http://192.168.1.1:5601
    - Entrer dans la barre au milieu de l'écran https://192.168.1.1:9200
    - Cliquer sur "se connecter manuellement" puis entrer le nom d'utilisateur Kibana_System puis le mot de passe (MotDePasse dans notre cas)
@@ -82,7 +81,7 @@ Importer les OVA, configurer le réseau `lab_net` et activer Guest Additions (su
 NB: la connexion à Kibana peut également se faire automatiquement grâce à un token pouvant être généré.
 Pour se faire, aller dans le pc monitoring et entrer la commande sudo /usr/share/elasticsearch/bin/elasticsearch-create-enrollment-token -s kibana, copier le token généré et le coller dans la page d'acceuil de kibana dans kali
 
-   b) Connexion à Élasticsearch
+6.2 **Connexion à Élasticsearch**
    
 Après s'être connecté à Kibana, la page de connexion a Élastic s'ouvrira. Entrer le nom d'utilisateur: "Elastic" dans notre cas et le mot de passe "MotDePasse".
    
