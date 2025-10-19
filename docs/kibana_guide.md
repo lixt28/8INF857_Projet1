@@ -20,15 +20,15 @@ Ce guide résume la configuration **Kibana** réalisée pour visualiser les év�
 
 ---
 
-1) connexion a Elasticsearch-Kibana
-   a) connexion a Kibana
-   - dans la barre de recherche du navigateur de notre kali, entrer http://192.168.1.1:5601
-   - entrer dans la barre au milieu de lecran https://192.168.1.1:9200
-   - Cliquer sur se connecter manuellement puis entrer le nom d<utilisateur Kibana_System puis le mot de passe MotDePasse
-   - Aller dans le PC monitoring et entrer la commande sudo /usr/share/kibana/bin/kibana-verification-code
-pour obtenir le code de verification demande par kibana et le rentrer dans le pc Attaker(kali).
-NB: la connexion a Kibana peut egalement se faire automatiquement grace a un token pouvant etre genere.
-Cliquer sur se connecter automatiquement, puis aller dans le pc monitoring entrer la commande sudo /usr/share/elasticsearch/bin/elasticsearch-create-enrollment-token -s kibana, copier le token genere et le coller dans kali
+## 1) connexion a Elasticsearch-Kibana
+   a) Connexion a Kibana
+   - Dans la barre de recherche du navigateur de notre kali, entrer http://192.168.1.1:5601
+   - Entrer dans la barre au milieu de l'écran https://192.168.1.1:9200
+   - Cliquer sur "se connecter manuellement" puis entrer le nom d'utilisateur Kibana_System puis le mot de passe (MotDePasse dans notre cas)
+   - Aller dans le PC monitoring et entrer la commande sudo /usr/share/kibana/bin/kibana-verification-code pour obtenir le code de verification demandé par kibana et le rentrer dans le PC Attaker (kali).
+## NB: la connexion à Kibana peut également se faire automatiquement grâce à un token pouvant être généré.
+Pour se faire, aller dans le pc monitoring et entrer la commande sudo /usr/share/elasticsearch/bin/elasticsearch-create-enrollment-token -s kibana, copier le token généré et le coller dans la page d'acceuil de kibana dans kali
+
 
    b) Connexion a elastic
 Apres etre connecte a Kibana, la page de connexion a Elastic s<ouvrira. Entrer le nom d<utilisateur: Elastic et le mot de passe MotDePasse.
