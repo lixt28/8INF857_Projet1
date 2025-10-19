@@ -32,7 +32,7 @@ alert udp any any -> $HOME_NET 53 (
 # 1000009 – ICMP ping flood (echo request)
 alert icmp any any -> $HOME_NET any (
   msg:"ICMP_FLOOD_ATTEMPT";
-  icmp_type:8;
+  itype:8;
   detection_filter:track by_src,count 10,seconds 10;
   sid:1000009; rev:2;
 )
