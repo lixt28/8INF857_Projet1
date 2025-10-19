@@ -163,6 +163,7 @@ Créer un tableau de bord **“Snort – Overview”** et y ajouter des visualis
 2. Glisser-déposer le `kibana-saved-objects.ndjson` → **Import**.  
 3. Pour activer les **règles**, aller dans **Rules** et pour chaque règles séléctionner `Enable`.  
 4. Vérifier que les **data views** et le **dashboard** sont présents ; ouvrir **Rules** et confirmer que l’**Index connector** pointe bien vers `alerts-snort`.
+5. Actualiser les **data views** si nécessaire.
 
 ---
 
