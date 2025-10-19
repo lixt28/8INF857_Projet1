@@ -7,7 +7,8 @@ sudo apt install -y build-essential g++ automake git autoconf libtool libpcap-de
 git clone https://github.com/snort3/libdaq.git
 cd libdaq
 ./bootstrap
-./configure --prefix=/usr/local/lib/daq_s3
+./configure 
+#--prefix=/usr/local/lib/daq_s3
 make
 sudo make install
 sudo ldconfig
