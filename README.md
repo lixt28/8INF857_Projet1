@@ -55,7 +55,7 @@ Importer les OVA, configurer le réseau `lab_net` et activer Guest Additions (su
    <img src="docs/images/ELK1.jpg" width="600"><img src="docs/images/ELK2.jpg" width="600">
 
    Vérifier l'état du cluster avec `curl -X GET http://localhost:9200`, le résultat doit être le suivant:
-   <img src="docs/images/ELK3.jpg" width="600">
+   <img src="docs/images/ELK3.jpeg" width="600">
 
 6. **Installer Kibana :**
    ```bash
