@@ -86,9 +86,11 @@ Importer les OVA, configurer le réseau `lab_net` et activer Guest Additions (su
     ```bash
     sudo bash scripts/05_install_snort3.sh
     # vérifier, afficher la version
-    /usr/local/snort/bin/snort -V || true
+    snort -V
     ```
-10. **Déployer la config et les règles snort :**
+    Le résultat de la commande doit être comme la capture suivante :
+   <img src="docs/images/snort3-1.jpeg" width="600">
+11. **Déployer la config et les règles snort :**
     ```bash
     sudo bash scripts/06_deploy_snort_rules.sh
     # vérifie les fichiers
