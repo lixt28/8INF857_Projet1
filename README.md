@@ -121,7 +121,10 @@ vers Elasticsearch en utilisant le pipeline `snort-enrich`. Kibana indexe les do
 
 ## Bonus: Emails d'alertes
 Suivre `docs/bonus_mail.md`.
-Ne pas committer d’identifiants : utiliser configs/msmtp/etc_msmtprc.example comme modèle et remplir /etc/msmtprc localement.  
+Ne pas committer d’identifiants : utiliser configs/msmtp/etc_msmtprc.example comme modèle et remplir /etc/msmtprc localement.
+
+## Installation et configuration de Suricata
+
 
 ## Source : 
 - https://www.zenarmor.com/docs/linux-tutorials/how-to-install-and-configure-snort-on-ubuntu-linux#:~:text=a%20system%20service.-,Update%20the%20Ubuntu%20Server,and%20installed%20from%20the%20source.
