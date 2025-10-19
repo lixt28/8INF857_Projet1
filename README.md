@@ -133,9 +133,9 @@ Suricata génère des journaux détaillés au format EVE JSON, transmis vers Ela
    ```bash
     sudo bash suricata/scripts/install_suricata.sh
     ```
-2. ** Configuration de Suricata et du flux vers Elasticsearch:**
+2. ** Configuration de Suricata et du flux vers Elasticsearch:** (remplacer <interface> par l'interface réelle)
    ```bash
-    sudo bash suricata/scripts/configure_suricata.sh
+    sudo bash -x suricata/scripts/configure_suricata.sh <interface>
    #Verification
    sudo systemctl status suricata --no-pager -l | sed -n '1,10p'
    sudo tail -n 5 /var/log/suricata/eve.json
