@@ -1,15 +1,15 @@
 # Projet — Système de détection d'anomalies et de gestion de logs pour la sécurité des réseaux (Réalisé sur ubuntu 22.04 et kali Linux)
-Groupe : Eliot Droumaguet, Estelle Armandine Tchakouani Noukam, Lîna Janaan Wendtouin SAWADOGO
+Groupe : Eliot Droumaguet, Estelle Armandine Tchakouani Noukam, Lîna Janaan Wendtouin Sawadogo
 
 
 ## Objectif
 Ce dépôt fournit un guide reproductible pour la mise en place d'un laboratoire IDS + SIEM à des fins pédagogiques. 
 L'architecture proposée comprend : Snort 3 (production d'alertes JSON), syslog-ng (lecture et transfert vers Elasticsearch), 
-et Kibana pour la visualisation et la création de règles/alertes. Après avoir validé l’ensemble du pipeline (Snort → syslog-ng → Elasticsearch → Kibana), nous avons ensuite intégré Suricata afin d’enrichir la collecte
+et Kibana pour la visualisation et la création de règles/alertes.
 
 ## Contenu principal
+-`scripts/` : scripts d'installation et d'aide au déploiement (Elasticsearch, Kibana, syslog-ng, Snort, déploiement du pipeline).
 - `configs/` : fichiers de configuration pour Snort, syslog-ng et le pipeline Elasticsearch.
-- `scripts/` : scripts d'installation et d'aide au déploiement (Elasticsearch, Kibana, syslog-ng, Snort, déploiement du pipeline).
 - `scripts/test_scenarios/` : scripts de simulation d'attaques (à lancer depuis la VM attacker/Kali).
 - `kibana/dashboards/` : exports de dashboards Kibana (NDJSON) prêts à importer.
 - `docs/` : documentation technique et guides d'utilisation.
