@@ -1,5 +1,7 @@
 # Scénarios de test — attaques reproduites, scripts, et résultats attendus
 
+<img src="docs/images/http exploit(suricata).jpg" alt="Suricata - HTTP exploit" width="600">
+
 Ce document décrit chaque scénario d'attaque, où trouver les scripts, comment les lancer (depuis la VM **attacker (Kali)**), ce qu'on attend côté Snort/syslog-ng/Elasticsearch/Kibana, et comment collecter les preuves. Les scripts se trouvent dans `scripts/test_scenarios/` et doivent être exécutés depuis la VM **attacker (Kali)**.`
 
 ## Pré-requis
