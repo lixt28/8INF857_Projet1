@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-set -e
 sudo apt update
 sudo apt install -y syslog-ng
 sudo mkdir -p /var/log/central
