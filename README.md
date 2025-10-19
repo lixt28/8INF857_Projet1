@@ -124,6 +124,19 @@ Suivre `docs/bonus_mail.md`.
 Ne pas committer d’identifiants : utiliser configs/msmtp/etc_msmtprc.example comme modèle et remplir /etc/msmtprc localement.
 
 ## Installation et configuration de Suricata
+Objectif
+Intégrer Suricata afin d’enrichir la collecte d’événements réseau en parallèle de Snort.
+Suricata génère des journaux détaillés au format EVE JSON, transmis vers Elasticsearch via syslog-ng pour visualisation dans Kibana.
+
+1. ** Installation de Suricata:**
+   Exécuter sur la VM monitoring :
+   ```bash
+    sudo bash suricata/scripts/10_install_suricata.sh
+    ```
+2. ** Configuration de Suricata et du flux vers Elasticsearch:**
+ ```bash
+sudo bash suricata/scripts/11_configure_suricata.sh
+     ```
 
 
 ## Source : 
