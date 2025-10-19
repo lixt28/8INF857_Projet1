@@ -36,8 +36,8 @@ fi
 YAML="/etc/suricata/suricata.yaml"
 RULES_DIR="/etc/suricata/rules"
 REPO_ROOT="$(cd "$(dirname "$0")/.." && pwd)"
-LOCAL_RULES="${REPO_ROOT}/configs/local.rules"
-SYSLOGNG_SRC="${REPO_ROOT}/configs/suricata-es.conf"
+LOCAL_RULES="${REPO_ROOT}/config/local.rules"
+SYSLOGNG_SRC="${REPO_ROOT}/config/suricata-es.conf"
 SYSLOGNG_DST="/etc/syslog-ng/conf.d/suricata-es.conf"
 
 
