@@ -131,11 +131,11 @@ Suricata génère des journaux détaillés au format EVE JSON, transmis vers Ela
 1. ** Installation de Suricata:** -
    Exécuter sur la VM monitoring :
    ```bash
-    sudo bash suricata/scripts/10_install_suricata.sh
+    sudo bash suricata/scripts/install_suricata.sh
     ```
 2. ** Configuration de Suricata et du flux vers Elasticsearch:**
    ```bash
-    sudo bash suricata/scripts/11_configure_suricata.sh
+    sudo bash suricata/scripts/configure_suricata.sh
    #Verification
    sudo systemctl status suricata --no-pager -l | sed -n '1,10p'
    sudo tail -n 5 /var/log/suricata/eve.json
@@ -143,7 +143,7 @@ Suricata génère des journaux détaillés au format EVE JSON, transmis vers Ela
     ```
 3. ** Déployer les regles suricata:**
 ```bash
-    sudo bash suricata/scripts/13_deploy_local_rules.sh
+    sudo bash suricata/scripts/deploy_local_rules.sh
 ```
 4. **Suricata en mode test ** — (remplacer <interface> par l'interface réelle)
    ```bash
