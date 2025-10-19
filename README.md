@@ -84,6 +84,9 @@ Pour se faire, aller dans le pc monitoring et entrer la commande sudo /usr/share
 6.2 **Connexion à Élasticsearch**
    
 Après s'être connecté à Kibana, la page de connexion a Élastic s'ouvrira. Entrer le nom d'utilisateur: "Elastic" dans notre cas et le mot de passe "MotDePasse".
+
+<img width="1556" height="725" alt="capture écran d'identification elastic" src="https://github.com/user-attachments/assets/98e5d9ac-a2be-47e8-9b28-ba7935d51d08" />
+
    
 8. **Installer Syslog-ng :**
    ```bash
