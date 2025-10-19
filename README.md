@@ -49,6 +49,7 @@ Importer les OVA, configurer le réseau `lab_net` et activer Guest Additions (su
 4. **Installer Elasticsearch :**
    ```bash
    sudo bash scripts/01_install_elasticsearch.sh
+   # Pour faciliter l'installation
    # Dans elasticsearch.yml : Désindenter la ligne "http.port" et mettre "false" dans "xpack.security.enabled" et "xpack.security.http.ssl"
    sudo nano /etc/elasticsearch/elasticsearch.yml
    sudo systemctl restart elasticsearch.service
