@@ -30,7 +30,7 @@ Ce guide résume la configuration **Kibana** réalisée pour visualiser les év�
 NB: la connexion à Kibana peut également se faire automatiquement grâce à un token pouvant être généré.
 Pour se faire, aller dans le pc monitoring et entrer la commande sudo /usr/share/elasticsearch/bin/elasticsearch-create-enrollment-token -s kibana, copier le token généré et le coller dans la page d'acceuil de kibana dans kali
 
-   b) Connexion à élastic
+   b) Connexion à Élasticsearch
    
 Après s'être connecté à Kibana, la page de connexion a Élastic s'ouvrira. Entrer le nom d'utilisateur: "Elastic" dans notre cas et le mot de passe "MotDePasse".
 
