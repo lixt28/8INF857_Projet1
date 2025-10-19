@@ -112,13 +112,15 @@ Importer les OVA, configurer le réseau `lab_net` et activer Guest Additions (su
 
 ## Configuration de Kibana (Data Views, Rules, Alerts, Dashboard)
 Suivre `docs/kibana_guide.md`, aller directement à la section 5) pour importer.
+Exemple de dashboard:
+<img src="docs/images/kibana1.png" width="600">
 
 ## Tests & preuves
 Les scénarios de test sont fournis dans `scripts/test_scenarios/`. Après l'exécution d'un scénario, 
 Snort écrit une alerte au format JSONL dans `/var/log/snort/alert_json.txt`. syslog-ng lit ce fichier et poste chaque ligne
 vers Elasticsearch en utilisant le pipeline `snort-enrich`. Kibana indexe les données pour visualisation et création de règles d'alerte.
 Une fois qu'on a effectuer les tests, les résultats apparaissent dans le dashboard:
-<img src="docs/images/kibana1.png" width="600">
+<img src="docs/images/kibana2.png" width="600">
 
 ## Bonus: Emails d'alertes
 Suivre `docs/bonus_mail.md`.
