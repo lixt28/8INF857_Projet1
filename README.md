@@ -74,8 +74,8 @@ Importer les OVA, configurer le réseau `lab_net` et activer Guest Additions (su
    - Dans la barre de recherche du navigateur de notre kali, entrer http://192.168.1.1:5601
    - Entrer dans la barre au milieu de l'écran https://192.168.1.1:9200
    - Cliquer sur "se connecter manuellement" puis entrer le nom d'utilisateur Kibana_System puis le mot de passe (MotDePasse dans notre cas)
-
-    <img width="1271" height="798" alt="elastic" src="https://github.com/user-attachments/assets/a4285347-0bb2-4d46-a3af-fc65b197c223" />
+     
+<img width="1271" height="798" alt="elastic" src="https://github.com/user-attachments/assets/2f361b93-e3e1-4e3d-9e4c-eb833d415d55" />
 
    - Aller dans le PC monitoring et entrer la commande sudo /usr/share/kibana/bin/kibana-verification-code pour obtenir le code de verification demandé par kibana et le rentrer dans le PC Attaker (kali).
      
