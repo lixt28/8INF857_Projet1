@@ -70,11 +70,6 @@ Importer les OVA, configurer le réseau `lab_net` et activer Guest Additions (su
    sudo bash scripts/03_install_syslogng.sh
    # vérifier le service
    sudo systemctl status syslog-ng
-   # tester l'envoi d'un message "fake" pour vérifier la route syslog-ng -> ES :
-   sudo bash -c 'echo "{ \"seconds\": $(date +%s), \"msg\": \"TEST_PIPELINE\", \"rule\": \"0:0:0\" }" >> /var/log/snort/alert_json.txt'
-   # puis regarder si ES a ingéré
-   sleep 2
-   curl -s 'http://127.0.0.1:9200/snort/_search?size=3&sort=@timestamp:desc&pretty'
    ```
 8. **Déployer le pipeline snort-enrich dans Elasticsearch :**
    ```bash
