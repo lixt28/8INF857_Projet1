@@ -10,6 +10,7 @@ Ce document montre les alertes générées par Suricata et les vues correspondan
 <img src="docs/images/http.jpg" alt="Kibana - HTTP exploit" width="600">
 
 <img src="docs/images/snort3-1.jpeg" width="600">
+
 2.SSH brute-force (SYN)
 
 <img src="docs/images/SSH brute force(suricata).jpg" alt="Suricata - SSH brute force" width="600">
