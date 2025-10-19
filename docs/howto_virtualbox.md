@@ -155,7 +155,7 @@ sudo systemctl status apache2 # doit être actif
 ```bash
 sudo apt update
 sudo apt install -y build-essential dkms linux-headers-$(uname -r)
-sudo sh /media/<user>/VBox_GAs_7.0.<xx>/VBoxLinuxAdditions.run
+sudo sh /media/$USER/VBox_GAs_*/VBoxLinuxAdditions.run
 sudo reboot
 ```
 5. Vérifier le copier/coller entre hôte ↔ VM.
