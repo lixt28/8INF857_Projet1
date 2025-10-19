@@ -50,9 +50,13 @@ Importer les OVA, configurer le réseau `lab_net` et activer Guest Additions (su
 4. **Installer Elasticsearch :**
    ```bash
    sudo bash scripts/01_install_elasticsearch.sh
+   # Dans elasticsearch.yml : Désindenter la ligne "http.port" et mettre "false" dans "xpack.security.enabled" et "xpack.security.http.ssl"
+   sudo nano /etc/elasticsearch/elasticsearch.yml
+   sudo systemctl restart elasticsearch.service
+   sudo systemctl status elasticsearch.service 
    ```
-   Désindenter la ligne "http.port" et mettre "false" dans "xpack.security.enabled" et "xpack.security.http.ssl" pour faciliter la mise en place.
-   <img src="docs/images/ELK1.jpg" width="600"><img src="docs/images/ELK2.jpg" width="600">
+   <img src="docs/images/ELK1.jpg" width="600">  
+   <img src="docs/images/ELK2.jpg" width="600">  
 
    Vérifier l'état du cluster avec `curl -X GET http://localhost:9200`, le résultat doit être le suivant:
    <img src="docs/images/ELK3.jpeg" width="600">
