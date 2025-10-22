@@ -176,7 +176,9 @@ Suricata génère des journaux détaillés au format EVE JSON, transmis vers Ela
    sudo suricata -c /etc/suricata/suricata.yaml -i <interface> \
    -S /etc/suricata/rules/local.rules -l /var/log/suricata -v
     ```
-Les résultats des tests d’alertes Suricata ainsi que les observations Kibana sont regroupés dans le fichier test_scenarios(Suricata). Consultez ce fichier pour visualiser les captures d’écrans des alertes, les signatures déclenchées et les tableaux de bord correspondants.
+   5. Exemples d’alertes Suricata visualisées sur Kibana
+      
+Les résultats des tests d’alertes Suricata ainsi que les observations Kibana sont regroupés dans `suricata/test_scenarios(Suricata)/`. Consultez ce fichier pour visualiser les captures d’écrans des alertes, les signatures déclenchées et les tableaux de bord correspondants.
 
 ## Source : 
 - https://www.zenarmor.com/docs/linux-tutorials/how-to-install-and-configure-snort-on-ubuntu-linux#:~:text=a%20system%20service.-,Update%20the%20Ubuntu%20Server,and%20installed%20from%20the%20source.
